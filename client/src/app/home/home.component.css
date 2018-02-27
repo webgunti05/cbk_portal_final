@@ -1,0 +1,20 @@
+.appload_cont{ padding: 50px 0px; margin-top: 85px;}
+.btns_wrap{ margin-top:30px;}
+.btns_wrap > button{ padding: 5px 40px;}
+.btns_wrap > button > span{ display: inline-block; width: 40px; position: relative; top: 10px;
+    left: -20px;
+}
+.btns_wrap > button{ border-radius: 36px;}
+.btns_wrap > button > small{ display: block; position: relative;}
+.and_icntext{ display: block; left: 6px; position: relative;}
+.ios_icntext{ display: block; left: 3px; position: relative;}
+.drid{ max-height:60px; display: block; float: left; position: relative; left: -10px;
+top: 5px;
+}
+.btnicons_det{ display: inline-block; margin: 0px; padding: 0px;}
+.big_fnt{  font-weight:600;}
+.and_btn{ background-color: #259dd0; border-color: #259dd0; color: #fff;}
+.and_btn:hover{ background-color: #fff; border-color: #2c2c2c; color: #2c2c2c;}
+
+.site_title{ font-size: 45px; font-weight:300; padding: 60px 0px 0px 0px; color: #259dd0;}
+.site_desc{ font-size: 18px; color: #2c2c2c; line-height: 30px; font-weight:300;}

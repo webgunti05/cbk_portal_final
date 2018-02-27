@@ -1,0 +1,11 @@
+<div class="menu_bar">
+        <div class="celeb_logo">
+          <a href=""><img [src]="logoBg" alt="CelebKonect Logo" title="CeleKonect Logo" width="100%"></a>
+        </div>
+
+
+          <ul class="cbk_menu">
+            <li *ngFor = "let m of menuList"> <a [routerLink]="[m]">{{m}}</a></li>
+          </ul>
+          <div style="clear:both;"></div>
+</div>
