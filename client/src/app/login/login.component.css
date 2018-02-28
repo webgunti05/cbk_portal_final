@@ -1,0 +1,125 @@
+.lgr_frm{ margin-top: 85px; padding: 50px 0px 0px 0px; height: 100vh; }
+.sin_hdng{ font-weight:200; font-size: 30px; text-transform: uppercase;}
+.logi_bg{ max-width: 70px; display: block; margin: 0px auto;}
+.frm_tabs{ margin:0px 0px 0px 0px; padding: 0px; list-style: none;}
+.frm_tabs li{ float: left; padding: 5px 0px;  cursor: pointer; font-size: 16px; margin-right: 20px;} 
+.clr{ clear: both;}
+.myemail{
+    height:45px; border-radius:2px; font-size: 13px; color: #666; 
+}
+.myemail::-webkit-input-placeholder{ color: #ccc;}
+.brd_frm{ padding: 0px; margin: 5px 0px 20px 0px;}
+
+
+.chk_box {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.chk_box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #999;
+}
+
+
+.chk_box:hover input ~ .checkmark {
+    background-color: #fff;
+}
+
+
+.chk_box input:checked ~ .checkmark {
+    background-color: #259dd0; border-color: #259dd0;
+}
+
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+.chk_box input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.chk_box .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.lg_btnr{ float: right; border-color: #259dd0; color: #fff; background-color: #259dd0; padding: 8px 25px; border-radius: 2px;
+    font-size: 13px; text-transform: uppercase; font-weight: 600;
+}
+
+.bg-animation{
+   background-repeat: repeat;
+   background-position: 0 0;
+    -webkit-animation: animate_background 20s linear 0s infinite;
+    -moz-animation: animate_background 20s linear 0s infinite;
+    -o-animation: animate_background 20s linear 0s infinite;
+    animation: animate_background 20s linear 0s infinite;
+    min-height:100vh;
+    height: 100%;
+}
+@-webkit-keyframes animate_background { 
+    from { 
+        background-position: 0 0;
+    } 
+    to { 
+        background-position: 0 -480px;
+    } 
+}
+@-moz-keyframes animate_background { 
+    from { 
+        background-position: 0 0;
+    } 
+    to { 
+        background-position: 0 -480px;
+    } 
+}
+@-o-keyframes animate_background { 
+    from { 
+        background-position: 0 0;
+    } 
+    to { 
+        background-position: 0 -480px;
+    } 
+}
+@keyframes animate_background { 
+    from { 
+        background-position: 0 0;
+    } 
+    to { 
+        background-position: 0 -480px;
+    } 
+}
+
+.myrht_frm{ background-color: rgba(255,255,255,1);  padding: 50px 50px 50px 50px;}

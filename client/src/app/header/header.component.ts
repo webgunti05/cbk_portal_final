@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../services/menu.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'Header',
@@ -9,11 +10,18 @@ import { MenuService } from '../services/menu.service';
 export class HeaderComponent implements OnInit {
 
   private logoBg : String;
+
   menuList : Array<any>;
-  constructor(private menuSvc : MenuService) {
+  constructor(private menuSvc : MenuService, private routeSvc : Router) {
     this.logoBg = "assets/images/logo-trans.png";
     this.menuList = this.menuSvc.getMenuList();
+
+
   }
+
+ 
+
+  
 
   ngOnInit() {
   }

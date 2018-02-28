@@ -10,7 +10,7 @@
     -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out; color: #2c2c2c; text-decoration: none;
 }
-.cbk_menu li a:hover{ text-decoration: none; color: #259dd0; background-color: #f0f0f0;}
+.cbk_menu li a:hover{ text-decoration: none; color: #259dd0; }
 .cbk_menu li:after{ position: absolute; content:""; width: 0%; height: 3px; bottom: 0px;
     background-color: #259dd0; display: block; margin: 0px auto; left: 0px; right: 0px; 
     -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;

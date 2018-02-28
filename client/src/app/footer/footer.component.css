@@ -1,0 +1,5 @@
+.foot_wrap{ padding: 20px 0px; background-color: #f5f5f5; }
+.foot_list{ list-style: none; }
+.foot_list li{ color: #2c2c2c; font-size: 13px; float: left;}
+.foot_list li a{ color: #2c2c2c; display: block; padding: 5px 12px; }
+.ql_hdng{ font-size: 18px; font-weight:600; padding-bottom: 10px;}
