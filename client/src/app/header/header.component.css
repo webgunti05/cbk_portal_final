@@ -1,4 +1,4 @@
-.menu_bar{ background-color: #f5f5f5; padding: 0px 60px; margin: 0px; position: fixed; top: 0px;
+.menu_bar{ padding: 0px 30px; margin: 0px; position: fixed; top: 0px;
     left: 0px; right: 0px; z-index: 9999;
 }
 .celeb_logo { width:75px; float: left;}

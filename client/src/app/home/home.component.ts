@@ -9,7 +9,7 @@ export class HomeComponent implements OnInit {
 
   private mobAppBg : String;
   constructor() {
-    this.mobAppBg = "assets/images/mobile_app.png";
+    this.mobAppBg = "assets/images/mobile_app2.png";
   }
 
   ngOnInit() {
