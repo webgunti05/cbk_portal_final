@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   private mobAppBg : String;
+  private tabBg : String;
   constructor() {
     this.mobAppBg = "assets/images/mobile_app2.png";
+    this.tabBg = "assets/images/tab_bg.png";
   }
 
   ngOnInit() {

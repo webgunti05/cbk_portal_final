@@ -1,24 +1,22 @@
-.menu_bar{ padding: 0px 30px; margin: 0px; position: fixed; top: 0px;
-    left: 0px; right: 0px; z-index: 9999;
+.menu_bar{ padding: 10px 30px; margin: 0px; position: fixed; top: 0px;
+    left: 0px; right: 0px; z-index: 9999; background: none;
 }
 .celeb_logo { width:75px; float: left;}
 .celeb_logo > a{ margin: 10px 0px 12px 0px; display: block;}
 
 .cbk_menu{ float: right; list-style: none; padding: 0px; margin: 0px;}
 .cbk_menu li{ float: left; position: relative;}
-.cbk_menu li a{ display: block; padding: 31px 25px; text-transform: uppercase;
+.cbk_menu li a{ display: block; padding: 10px 25px; text-transform: uppercase;
     -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out; color: #2c2c2c; text-decoration: none;
 }
 .cbk_menu li a:hover{ text-decoration: none; color: #259dd0; }
-.cbk_menu li:after{ position: absolute; content:""; width: 0%; height: 3px; bottom: 0px;
-    background-color: #259dd0; display: block; margin: 0px auto; left: 0px; right: 0px; 
-    -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out; color: #2c2c2c; text-decoration: none; 
-}
-.cbk_menu li:hover:after{ width: 100%;}
+.lgn_btn{ border: 3px solid #fff; color: #fff; margin-top:10px;}
+.lgn_btn a{ color: #fff!important;}
+.lgn_btn a:hover{ background-color: #fff; color: #259dd0!important;}
 
 .list_active{ color: #259dd0; background-color: #f0f0f0; position: relative;}
 list_active:after{ position: absolute; content:""; width: 100%; height: 3px; bottom: 0px;
     background-color: #259dd0; display: block; margin: 0px auto; left: 0px; right: 0px;
 }
+

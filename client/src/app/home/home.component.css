@@ -1,5 +1,6 @@
-.appload_cont{ padding: 50px 0px; margin-top: 85px; background-color: #fff;
-    font-family: 'Raleway', sans-serif;
+.appload_cont{ padding: 50px 0px; margin-top: 0px; 
+	font-family: 'Raleway', sans-serif; height: 100vh; background-repeat: no-repeat;
+	background-size:cover; position: relative; overflow: hidden;
 }
 
 .btns_wrap > button{ padding: 5px 40px;}
@@ -28,15 +29,18 @@ top: 5px;
 /* .brd{ max-width: 70%; display: block; margin: 0px 0px;} */
 .celeb_appmobs > img{ max-width: 480px;}
 .ql_hdng2{ font-size: 20px; font-weight: 600; color: #2c2c2c; padding: 20px 0px;}
-.sc_wrap{ margin: 0px 0px; display: block;}
-.fb,.tw,.lin{ padding: 10px 10px; width: 120px;}
-.fb span,.tw span,.lin span{ display: block;}
-.fb{ border-color: #4267b2; color:#4267b2;}
-.tw{ border-color: #1da1f2; color:#1da1f2;}
-.lin{ border-color: #e4405f; color:#e4405f;}
-.fb:hover{ background-color: #4267b2; color:#fff;}
-.tw:hover{ background-color: #1da1f2; color:#fff;}
-.lin:hover{ background-color: #e4405f; color:#fff;}
+.sc_wrap{ margin: 0px 0px 0px 50px; display: block; list-style: none;}
+.fb,.tw,.lin{ padding: 10px 20px; display: inline-block; cursor: pointer;
+	-webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; 
+	-webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+}
+.fb span,.tw span,.lin span{ display: inline-block;}
+.fb{ background-color: #4267b2; color:#fff; border: 1px solid;}
+.tw{ background-color: #1da1f2; color:#fff; border: 1px solid;}
+.lin{ background-color: #e4405f; color:#fff; border: 1px solid;}
+.fb:hover,.tw:hover,.lin:hover{ background-color:rgba(0,0,0,0.9); color:#fff;}
+
 
 /*buttons*/
 .btn-app-store{
@@ -44,10 +48,10 @@ top: 5px;
 	color: white;
 	position: relative;
 	height: 60px;
-	padding-left: 40px;
-	padding-right: 50px;
+	padding-left: 55px;
+	padding-right: 20px;
 }
-.btn-app-store i{
+.ibtn{
 	font-size: 40px;
 	position: absolute;
 	left: 10px;
@@ -58,13 +62,12 @@ top: 5px;
 	line-height: 12px;
 	margin-bottom: 2px;
     margin-top: 5px;
-    text-align: left;
 }
 .btn-app-store .big{
 	display: block;
 	text-align: left;
-	font-size: 18px;
-	line-height: 18px;
+	font-size: 21px;
+	line-height: 21px;
 }
 .app_btn{ display: inline-block;}
 
@@ -78,3 +81,36 @@ top: 5px;
     margin-right: 5px; color: #fff; text-align: center; vertical-align: middle;
     display: table-cell;
 }
+
+.tab_bgr{ width: 760px; display: block; margin: 0px auto; position: absolute; overflow: hidden;
+	  z-index: 1000; bottom: 0px; left: 0px; right: 0px;
+}
+.tab_bgr > img{ max-width: 600px; display: block; margin: 0px auto -50px auto;}
+
+.site_hdng{ text-align: center; max-width: 600px; margin: 0px auto; padding-top: 50px; }
+.konect_hdng{ font-weight: 200; font-size: 30px; color: #fff; text-align: center;}
+.celebs_hdng{ color: #fff; text-transform: uppercase; font-weight: 200; font-size: 50px;
+	text-align: center;
+}
+.sgpbtn{ text-align: center; background-color: #fff; border: none; text-transform:uppercase;
+	width: 200px; margin: 0px auto; padding: 14px 20px; margin-top: 25px; color:#259dd0;
+	-webkit-border-radius: 50px; -moz-border-radius:50px; -ms-border-radius:50px; border-radius:50px;
+	cursor: pointer; -webkit-box-shadow:inset 0px -3px #071f2e; -moz-box-shadow:inset 0px -3px #071f2e;
+	-ms-box-shadow:inset 0px -3px #071f2e;  box-shadow:inset 0px -3px #071f2e; font-weight:bold; 
+}
+
+.hmpage_btnswrap{ padding: 100px 0px; background-color: #fff;}
+.cntr_box{ max-width: 85%; margin: 0px auto;}
+.dwn_hdng{ color: #000; text-transform: uppercase; font-weight:200; text-align: left; margin-bottom: 25px;}
+.app_btn{ display: block;}
+.dwn2{ padding-left: 50px;}
+
+
+.add_lftbord{ position: relative;}
+.add_lftbord:before{ content: ''; position: absolute; left: 0px; top: 0px; height: 160px; width: 1px;
+background: #ffffff; 
+background: -moz-linear-gradient(top, #ffffff 0%, #cccccc 50%, #ffffff 100%);
+background: -webkit-linear-gradient(top, #ffffff 0%,#cccccc 50%,#ffffff 100%); 
+background: linear-gradient(to bottom, #ffffff 0%,#cccccc 50%,#ffffff 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
+ }
