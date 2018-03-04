@@ -23,6 +23,7 @@ import { CommunityComponent } from './community/community.component';
 import { HelpComponent } from './help/help.component';
 import { CelebritiesComponent } from './celebrities/celebrities.component';
 import { CreditsComponent } from './credits/credits.component';
+import { ObservableService } from './services/observable.service';
 
 
 
@@ -67,7 +68,8 @@ import { CreditsComponent } from './credits/credits.component';
     ])
   ],
   providers: [
-    MenuService
+    MenuService,
+    ObservableService
   ],
   bootstrap: [AppComponent]
 })
