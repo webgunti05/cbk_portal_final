@@ -3,7 +3,7 @@
           <a href=""><img [src]="logoBg" alt="CelebKonect Logo" title="CeleKonect Logo" width="100%"></a>
         </div>
           <ul class="cbk_menu">
-            <li class="lgn_btn"><a [routerLink]="'login'">Login</a></li>
+            <li class="lgn_btn" (click)="ShowMyPopup()"><a >Login</a></li>
           </ul>
 
           <!-- <ul class="cbk_menu" *ngIf="showHomeMenu">
@@ -14,4 +14,40 @@
               <li (click)="showOnlyLoginmenu()"><a [routerLink]="'javscript:void'">Logout</a></li>
           </ul> -->
           <div style="clear:both;"></div>
+</div>
+
+
+<!--login popup-->
+<div class="loginpop_mask"  *ngIf="showPopup" (click)="closePopup()"></div>
+<div class="loing_popup" *ngIf="showPopup">
+    <div class="pop_left" [style.background-image]="'url(\'assets/images/handmobile.jpg\')'">
+        
+    </div>
+
+    <div class="pop_right">
+                <h3 class="lgn_hdng">Login to your account</h3>
+            <form action="">
+                <div class="form-group embx embx2">
+                  <label for="email">Email:</label>
+                  <span class="usicn"><i class="fas fa-user"></i></span>
+                  <input type="email" class="form-control lg_email" id="email" placeholder="ex : John@indoz.com" name="email">
+                </div>
+                <div class="form-group embx">
+                  <label for="pwd">Password:</label>
+                  <span class="usicn"><i class="fas fa-key"></i></span>
+                  <input type="password" class="form-control lg_email" id="pwd" placeholder="**********" name="pwd">
+                </div>
+                
+                <div class="checkbox">
+                    <label class="chk_box">Remember me
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                  <button type="submit" class="btn btn-default lgnbtner">Login </button>
+                </div>
+                
+              </form>
+
+              <div class="fgp">Don't you have an account ? <span class="signup_hdng">Signup</span></div>
+    </div>
 </div>

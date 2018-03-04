@@ -82,22 +82,25 @@ top: 5px;
     display: table-cell;
 }
 
-.tab_bgr{ width: 760px; display: block; margin: 0px auto; position: absolute; overflow: hidden;
+.tab_bgr{ width: 760px; display: block; margin: 0px auto -10px auto; position: absolute; overflow: hidden;
 	  z-index: 1000; bottom: 0px; left: 0px; right: 0px;
 }
-.tab_bgr > img{ max-width: 600px; display: block; margin: 0px auto -50px auto;}
+.tab_bgr > img{ max-width: 600px; display: block; margin: 0px auto 0px auto;}
 
-.site_hdng{ text-align: center; max-width: 600px; margin: 0px auto; padding-top: 50px; }
+.site_hdng{ text-align: center; width: 600px; margin: 0px auto; display: block; padding-top: 50px; }
 .konect_hdng{ font-weight: 200; font-size: 30px; color: #fff; text-align: center;}
 .celebs_hdng{ color: #fff; text-transform: uppercase; font-weight: 200; font-size: 50px;
 	text-align: center;
 }
 .sgpbtn{ text-align: center; background-color: #fff; border: none; text-transform:uppercase;
-	width: 200px; margin: 0px auto; padding: 14px 20px; margin-top: 25px; color:#259dd0;
+	width: 200px; margin: 30px auto 0px auto; padding: 14px 20px; color:#259dd0; display: block;
 	-webkit-border-radius: 50px; -moz-border-radius:50px; -ms-border-radius:50px; border-radius:50px;
 	cursor: pointer; -webkit-box-shadow:inset 0px -3px #071f2e; -moz-box-shadow:inset 0px -3px #071f2e;
-	-ms-box-shadow:inset 0px -3px #071f2e;  box-shadow:inset 0px -3px #071f2e; font-weight:bold; 
+	-ms-box-shadow:inset 0px -3px #071f2e;  box-shadow:inset 0px -3px #071f2e; font-weight:bold;
+	-webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out; 
 }
+.sgpbtn:hover{ background-color: #259dd0; color: #fff;}
 
 .hmpage_btnswrap{ padding: 100px 0px; background-color: #fff;}
 .cntr_box{ max-width: 85%; margin: 0px auto;}
@@ -114,3 +117,8 @@ background: -webkit-linear-gradient(top, #ffffff 0%,#cccccc 50%,#ffffff 100%);
 background: linear-gradient(to bottom, #ffffff 0%,#cccccc 50%,#ffffff 100%); 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
  }
+
+ .top_row{ height: 40vh; position: relative;}
+ .mydata{ position: absolute; bottom: 0;}
+
+ 
