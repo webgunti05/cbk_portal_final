@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   private showMask : boolean;
   loginForm: FormGroup;
   message;
+  messageClass;
 
   menuList : Array<any>;
   constructor(private menuSvc : MenuService,
@@ -48,9 +49,10 @@ export class HeaderComponent implements OnInit {
     this.Obsvc.login(user).subscribe(data =>{
       if(!data.success){
         this.message = data.message;
+        this.messageClass = "alert alert-danger"
       } else{
         this.message = data.message;
-       
+        this.messageClass = "alert alert-success"
       }
     });
 

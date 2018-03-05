@@ -19,26 +19,18 @@ export class ObservableService {
         em.password = user.password;
         console.log(em);
         
-        return this.http.post("http://13.58.150.195:4300/logininfo/login", em)
+        return this.http.post("http://13.58.150.195:4300/logininfo/create", em)
            .map(data => {
                console.log(data.json())
                let result = data.json();
-               if(result.token){
-                  this.isUserLoggedIn.next(true);
-               }
+               
                return data.json();
            },
            err => {
                return err.json();
            });
    }
-       loggedStatus(){
-           return this.isUserLoggedIn.asObservable();
-       }
-       logout(){
-           localStorage.clear();
-           this.isUserLoggedIn.next(false);
-       }
+      
 
 
 }
