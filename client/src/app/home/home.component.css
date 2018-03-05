@@ -85,7 +85,7 @@ top: 5px;
 .tab_bgr{ width: 550px; display: block; margin: 0px auto -10px auto; position: absolute; overflow: hidden;
 	  z-index: 500; bottom: 0px; left: 0px; right: 0px;
 }
-.tab_bgr > img{ max-width: 600px; display: block; margin: 0px auto 0px auto;}
+.tab_bgr > img{ max-width: 600px; display: block; margin: 0px auto -30px auto;}
 
 .site_hdng{ text-align: center; width: 600px; margin: 0px auto; display: block; padding-top: 50px; }
 .konect_hdng{ font-weight: 200; font-size: 30px; color: #fff; text-align: center;}

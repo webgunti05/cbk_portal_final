@@ -26,16 +26,24 @@
 
     <div class="pop_right">
                 <h3 class="lgn_hdng">Login to your account</h3>
-            <form>
+            <form [formGroup]="loginForm" (submit)="onLoginSubmit()">
                 <div class="form-group embx embx2">
                   <label for="email">Email:</label>
-                  <span class="usicn"><i class="fas fa-user"></i></span>
-                  <input type="email" class="form-control lg_email" id="email" placeholder="ex : John@indoz.com" name="email">
+                  <!-- <span class="usicn"><i class="fas fa-user"></i></span> -->
+                  <div [ngClass]="{'has-error' : loginForm.controls.email.errors && loginForm.controls.email.dirty,
+                                  'has-success': loginForm.controls.email.valid && loginForm.controls.email.dirty}">
+                    <input type="email" class="form-control lg_email" id="email" placeholder="ex : John@indoz.com" formControlName="email">
+                    
+                    <ul class="hp_blk">
+                      <li *ngIf="loginForm.controls.email.errors?.required && loginForm.controls.email.dirty">This field is Required</li>
+                    </ul>
+                  </div>
+                  
                 </div>
                 <div class="form-group embx">
-                  <label for="pwd">Password:</label>
-                  <span class="usicn"><i class="fas fa-key"></i></span>
-                  <input type="password" class="form-control lg_email" id="pwd" placeholder="**********" name="pwd">
+                  <label for="password">Password:</label>
+                  <!-- <span class="usicn"><i class="fas fa-key"></i></span> -->
+                  <input type="password" class="form-control lg_email" id="password" placeholder="**********" formControlName="password">
                 </div>
                 
                 <div class="checkbox">

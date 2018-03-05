@@ -12,8 +12,14 @@ export class ObservableService {
         this.isUserLoggedIn= new Subject<any>();
     }
 
-    login(payLoad){
-        return this.http.post("http://13.58.150.195:4300/logininfo/login",payLoad)
+    login(user){
+        
+        let em : any = {};
+        em.email = user.email;
+        em.password = user.password;
+        console.log(em);
+        
+        return this.http.post("http://13.58.150.195:4300/logininfo/login", em)
            .map(data => {
                console.log(data.json())
                let result = data.json();

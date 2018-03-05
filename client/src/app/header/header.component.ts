@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../services/menu.service';
 import { Router } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ObservableService } from '../services/observable.service';
 
 @Component({
@@ -27,24 +27,24 @@ export class HeaderComponent implements OnInit {
     this.menuList = this.menuSvc.getMenuList();
     this.showPopup = false;
     this.showMask = false;
-    this.creatLoginForm;
+    this.creatLoginForm();
 
   }
 
 
   creatLoginForm(){
     this.loginForm = this.frmBuilder.group({
-      username : ['', Validators.required],
+      email : ['', Validators.required],
       password : ['', Validators.required]
     });
   }
 
   onLoginSubmit(){
     const user = {
-      username : this.loginForm.get('username').value,
+      email : this.loginForm.get('email').value,
       password : this.loginForm.get('password').value
     }
-
+   
     this.Obsvc.login(user).subscribe(data =>{
       if(!data.success){
         this.message = data.message;
