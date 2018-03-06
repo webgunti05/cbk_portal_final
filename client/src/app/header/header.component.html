@@ -1,12 +1,12 @@
-<div class="menu_bar">
-        <div class="celeb_logo">
+<div class="menu_bar" [class.headerFix]="navIsFixed">
+        <div class="celeb_logo" [class.smallLogo]="logoFixed">
           <a href=""><img [src]="logoBg" alt="CelebKonect Logo" title="CeleKonect Logo" width="100%"></a>
         </div>
           <ul class="cbk_menu" *ngIf="!showMyMenu">
-            <li class="lgn_btn" (click)="ShowMyPopup()"><a >Login</a></li>
+            <li  class="lgn_btn" (click)="ShowMyPopup()" [class.spaceLogin]="loginFixed"><a >Login</a></li>
           </ul>
 
-          <ul class="cbk_menu" *ngIf="showMyMenu">
+          <ul class="cbk_menu" *ngIf="showMyMenu" [class.spaceForMenu]="menuFixed">
               <li><a [routerLink]="'home'">Home</a></li>
               <li><a [routerLink]="'profile'">Profile</a></li>
               <li><a [routerLink]="'celebrities'">Celebrities</a></li>

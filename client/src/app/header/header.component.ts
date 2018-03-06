@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { DOCUMENT } from "@angular/platform-browser";
 import { MenuService } from '../services/menu.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
@@ -27,11 +28,17 @@ export class HeaderComponent implements OnInit {
   messageClass;
   user:any;
 
+  private navIsFixed : boolean;
+  private logoFixed : boolean;
+  private loginFixed : boolean;
+  private menuFixed : boolean;
+
   menuList : Array<any>;
   constructor(private menuSvc : MenuService,
      private routeSvc : Router,
      private Obsvc : ObservableService,
-     private frmBuilder : FormBuilder
+     private frmBuilder : FormBuilder,
+     @Inject(DOCUMENT) private document: Document
     ) {
     this.logoBg = "assets/images/logo-trans.png";
     this.menuList = this.menuSvc.getMenuList();
@@ -46,7 +53,11 @@ export class HeaderComponent implements OnInit {
     this.tab2 = false;
     this.tab3 = false;
     this.tab4 = false;
-   
+
+    this.navIsFixed = false;
+    this.logoFixed = false;
+    this.loginFixed = false;
+    this.menuFixed = false;
 
   }
 
@@ -153,5 +164,23 @@ export class HeaderComponent implements OnInit {
       break;
     }  
 }
+
+@HostListener("window:scroll", [])
+onWindowScroll() {
+  let number = this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+  if(number > 100){
+    this.navIsFixed = true;
+    this.logoFixed = true;
+    this.loginFixed = true;
+    this.menuFixed = true;
+  }
+  else if(this.navIsFixed && number < 10){
+    this.navIsFixed = false;
+    this.logoFixed = false;
+    this.loginFixed = false;
+    this.menuFixed = false;
+  }
+}
+
 
 }
