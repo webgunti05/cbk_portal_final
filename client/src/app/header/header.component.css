@@ -29,7 +29,7 @@ list_active:after{ position: absolute; content:""; width: 100%; height: 3px; bot
 	-webkit-border-radius:2px; -moz-border-radius:2px; -ms-border-radius:2px; border-radius:2px;
 }
 .loginpop_mask{ background-color: rgba(0,0,0,0.8); position: fixed; width: 100%; height:100%; top: 0; bottom: 0;
-	left: 0; right: 0; z-index:1000; cursor: pointer;
+	left: 0; right: 0; z-index:1000; cursor: crosshair;
 }
 .pop_left{ display: block; width: 45%; float: left; height: inherit; background-repeat: no-repeat;
 	background-size: cover; -webkit-box-shadow:0px 0px 40px #999; -moz-box-shadow:0px 0px 40px #999;
@@ -40,7 +40,8 @@ list_active:after{ position: absolute; content:""; width: 100%; height: 3px; bot
 }
 .lgn_hdng{ color: #000; font-weight:300; font-size: 20px; text-transform: uppercase; padding-bottom: 30px;}
 .lg_email{ border: none; border-radius:0px; border-bottom: 1px solid #ccc; outline: none;
-	box-shadow:none; -webkit-box-shadow:none; font-size: 12px; -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
+    box-shadow:none; -webkit-box-shadow:none; font-size: 12px; -webkit-transition: 0.3s ease-in-out;
+     -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out; position: relative; padding: 0 0 5px 0px; 
 }
 .lg_email:focus{ border-color: #259dd0; color: #259dd0;}
@@ -121,4 +122,84 @@ list_active:after{ position: absolute; content:""; width: 100%; height: 3px; bot
 	font-size: 13px;}
 .signup_hdng{ color: #259dd0; font-weight: 600; cursor: pointer;}
 .hp_blk{ list-style: none; font-size: 12px;}
+
+
+
+
+
+
+
+/*Register Form Setup*/
+.register_wrapper{ width:100%; max-width: 670px; height: 100%; position: fixed; right: -20px; top: 0px; bottom: 0px; background-color: #fff;
+    z-index: 10000; box-shadow: 0px 0px 10px #000; padding: 50px 50px; box-sizing: border-box;
+    font-family: 'Raleway', sans-serif; overflow-y: scroll;
+}
+.regi_title{ font-size:30px; color: #666; font-weight: 200; margin-bottom: 30px; text-transform: uppercase; }
+.regtabs{ list-style: none; padding: 0px; margin: 0px 0px 30px 0px; color: #ddd;}
+.regtabs li{ width: 80px; height:80px; float: left; border-radius:100%; border:1px solid #ddd;
+        margin-right:50px; position: relative; background-color: #fff; cursor: pointer; 
+        padding: 25px 20px; text-align: center;
+}
+.regtabs li:after{ position: absolute; content: ""; width: 100%; height: 1px; background-color: #ddd; right: -80%;
+    top: 40px; z-index: -1;
+}
+.list_latchild:after{ display: none;}
+
+.regtabs > li > p{ position: absolute; bottom: -50px; left: 0px; right: 0px; text-align: center;}
+.reg_active{ color: #259dd0; border-color: #259dd0!important;}
+.reg_active:after{ position: absolute; content: ""; width: 100%; height: 1px; background-color: #259dd0!important; right: -80%;
+    top: 40px; z-index: -1;
+}
+.pi_hdng{ font-size: 20px; color: #666; padding-top: 50px; padding-bottom: 30px; font-weight:400;}
+.reg_email{ width: 70%;}
+.rgbtnr{ float: left; padding: 10px 15px; outline: none; -webkit-box-shadow: 0px 3px 0px #1c262a;
+    -moz-box-shadow: 0px 3px 0px #1c262a; box-shadow: 0px 3px 0px #1c262a;
+}
+
+.prefbx{
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    background-repeat: no-repeat; background-size: 16px; background-position: center right;
+}
+.interest_lists{ list-style: none; padding: 0px; margin: 0px;}
+.interest_lists > li{ float: left; width: 23%; margin-right: 2%; 
+    position: relative; margin-bottom: 30px;
+}
+.pref_img{ position: relative;  overflow: hidden; width: 100%; height: 130px; margin-bottom: 10px; } 
+.interest_lists > li > p{ padding: 5px 0px 0px 0px; margin: 0px;}
+
+
+
+/*buttons*/
+.btn-app-store{
+    background: black;
+	color: white;
+	position: relative;
+	height: 60px;
+	padding-left: 55px;
+	padding-right: 20px;
+}
+.ibtn{
+	font-size: 40px;
+	position: absolute;
+	left: 10px;
+}
+.btn-app-store .small{
+	display: block;
+	font-size: 12px;
+	line-height: 12px;
+	margin-bottom: 2px;
+    margin-top: 5px;
+}
+.btn-app-store .big{
+	display: block;
+	text-align: left;
+	font-size: 21px;
+	line-height: 21px;
+}
+.app_btn{ display: inline-block;}
+.thank_data{ font-size:18px; font-weight:400; padding-bottom: 20px;}
+.pi_hdng2{ padding-bottom:  20px; margin-bottom: 0px; color: #666;}
+.regimasker{ width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0; z-index: 1000; cursor: crosshair;
+}
 
