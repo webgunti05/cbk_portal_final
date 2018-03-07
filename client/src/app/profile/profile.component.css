@@ -43,3 +43,28 @@
     -webkit-box-shadow: 0px 0px 30px #666; -ms-box-shadow: 0px 0px 30px #666; box-shadow: 0px 0px 30px #666;
 }
 .profile_edit{ color: #000; font-size:14px; text-align: center; position: relative; top: 20px;}
+
+.profile_info{ padding-left: 200px;}
+.profile_info ul{ list-style: none; padding: 30px 0px 30px 0px; margin: 0px;}
+.profile_info ul li{ float: left; width: 25%;}
+.profile_info ul li span{ text-transform: uppercase; color: #666; font-size:14px; font-weight:400; display: block;}
+.profile_info ul li p{ text-transform: capitalize; color: #000; font-size:16px; font-weight:600;}
+
+.flw_btn{  background-color: #259dd0; color: #fff; text-align: center; font-size:16px;
+    -webkit-border-radius:0px;  -moz-border-radius:0px; border-radius:0px; margin: 0px auto; height: 40px;
+    -webkit-box-shadow: 0px 3px 0px #1c262a; -moz-box-shadow: 0px 3px 0px #1c262a; -ms-box-shadow: 0px 3px 0px #1c262a;
+box-shadow: 0px 3px 0px #1c262a; font-weight:600; padding: 0 20px; float: right; -webkit-border-radius: 2px;
+-moz-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px;
+}
+
+.profile_tabs{ border-top:1px solid #ddd; border-bottom: 1px solid #ddd; list-style: none;}
+.tabs_header{ list-style: none; padding: 0px; margin: 0px;}
+.tabs_header li{ float: left; padding: 15px 8%; float: left; font-size:18px; font-weight:600; cursor: pointer;}
+.mytabicn{ font-size: 1.2rem; position: relative; top: 2px;}
+
+.prof_infodata,.prof_feedsdata,.prof_media{ padding: 30px 85px;}
+.prof_infodata h3{ font-size: 16px; font-weight:600; color: #000; padding-bottom: 10px; margin: 0px;}
+.prof_infodata p{ font-size: 14px; font-weight:400; color: #444; padding-bottom: 20px; line-height: 25px; margin: 0px;}
+.ptab_active2{ color: #000;}
+.ptab_active{ color: #259dd0;}
+

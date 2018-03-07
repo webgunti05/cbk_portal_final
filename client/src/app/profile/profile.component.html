@@ -50,10 +50,77 @@
               </div>
             </div>
         </div>
+
+
+        <div class="profile_info">
+          <ul>
+            <li>
+              <span>Name</span>
+              <p>Lipsika</p>
+          </li>
+          <li>
+              <span>Occupation</span>
+              <p>Singer</p>
+          </li>
+          <li>
+              <span>Country</span>
+              <p>India</p>
+          </li>
+          <li>
+              <button type="button" class="btn btn-default flw_btn">Follow</button>
+          </li>
+          <div class="clearfix"></div>
+          </ul>
+        </div>
+
+        <!--tabs for profile feeds starts-->
+        <div class="profile_tabs">
+            <ul class="tabs_header">
+              <li id="infoT" (click)="showProfileTabs('infoT', $event)" class="ptab_active">
+                <i class="fas fa-info-circle fa-2x mytabicn"></i> Info
+              </li>
+              <li id="feedT" (click)="showProfileTabs('feedT', $event)">
+                <i class="fas fa-newspaper fa-2x mytabicn"></i> Feeds
+              </li>
+              <li id="mediaT" (click)="showProfileTabs('mediaT', $event)">
+                <i class="far fa-images fa-2x mytabicn"></i> Media
+              </li>
+              <div class="clearfix"></div>
+            </ul>
+
+           
+        </div>
+
+         <!-- tabs data here-->
+         <div class="row prof_infodata" *ngIf="infoTab">
+            <h3>About Me</h3>
+            <p>Iam an Indian film Singer, worked predominantly in Telugu movie industry.
+               I worked in popular movies like Temper, Swimming Pool.
+                My previous film to hit the theatres was Temper.</p>
+        </div>
+
+
+
+
+
+        <div class="row prof_feedsdata" *ngIf="feedsTab">
+            <h3>Feeds will Flow Here</h3>
+        </div>
+
+
+
+
+        <div class="row prof_media" *ngIf="mediaTab">
+            <h3>Media will Shown Here</h3>
+        </div>
+
+
           
 
       </div>
       <!--mid Cont ends-->
+
+      
 
 
       
