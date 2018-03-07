@@ -24,6 +24,7 @@ import { HelpComponent } from './help/help.component';
 import { CelebritiesComponent } from './celebrities/celebrities.component';
 import { CreditsComponent } from './credits/credits.component';
 import { ObservableService } from './services/observable.service';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 
 
@@ -45,7 +46,8 @@ import { ObservableService } from './services/observable.service';
     CommunityComponent,
     HelpComponent,
     CelebritiesComponent,
-    CreditsComponent
+    CreditsComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { ObservableService } from './services/observable.service';
       { path : 'termsandconditions', component : TermsComponent},
       { path : 'privacypolicy', component : PrivacyComponent},
       { path : 'help', component : HelpComponent},
-      { path : 'communityguidlines', component : CommunityComponent}
+      { path : 'communityguidlines', component : CommunityComponent},
+      { path : 'mainpage', component : MainpageComponent}
     ])
   ],
   providers: [

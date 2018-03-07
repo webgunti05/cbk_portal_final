@@ -1,0 +1,45 @@
+.profpage{ background-size: cover; background-repeat: no-repeat; padding: 60px 0px;
+    overflow: hidden; position: relative; font-family: 'Raleway', sans-serif;
+}
+
+.inner_pages_wrap{ padding: 60px 0px; font-family: 'Raleway', sans-serif;}
+.lftnav_wrap{ list-style: none; padding: 0px 0px 50px 0px; margin: 0px; background-color: #fff;
+    -webkit-box-shadow:0px 0px 30px #ddd; -moz-box-shadow:0px 0px 30px #ddd; -ms-box-shadow:0px 0px 30px #ddd;
+    box-shadow:0px 0px 30px #ddd;
+    border: 1px solid #ddd;
+} 
+.lftnav_wrap li{ font-size: 14px; border-bottom: 1px solid #ddd;}
+.lftnav_wrap li a{ display: block; padding: 15px 20px; 
+    -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out; cursor: pointer;
+}
+.lftnav_wrap li a:hover{ background-color: #259dd0; color: #fff;}
+.pad_bot{ padding-bottom: 20px;}
+.spons_cont{ font-size: 18px;}
+.cbhdng{ font-size:14px; font-weight:400;}
+.prof_active{ background-color: #259dd0; color: #fff;}
+
+.bc_btn{ width: 100%; display: block; background-color: #259dd0; color: #fff; text-align: center; font-size:16px;
+        -webkit-border-radius:0px;  -moz-border-radius:0px; border-radius:0px; margin: 40px auto; height: 50px;
+        -webkit-box-shadow: 0px 3px 0px #1c262a; -moz-box-shadow: 0px 3px 0px #1c262a; -ms-box-shadow: 0px 3px 0px #1c262a;
+    box-shadow: 0px 3px 0px #1c262a; font-weight:600;
+}
+
+/*profile page css*/
+.cvrwrap{ position: relative;}
+.profile_wrapper{ padding: 0px; margin: 0px; position: relative; width: 100%;}
+.c_page{ position: relative;}
+.title_mask{ padding: 0px 0px; background-color: rgba(0,0,0,0.5); position: absolute; bottom: 0; width: 90%;
+     z-index: 10; right: 0; margin: 0px; padding-left: 150px; list-style: none;
+}
+.title_mask li{ float: left; color: #fff; padding: 10px 80px 10px 0;}
+.big{ display: block; font-size: 25px; font-weight:600; text-transform: uppercase; padding: 0px; margin: 0px; line-height: 1.5;}
+.title_mask li > small{ font-size:14px;}
+.profile_manager{ position: absolute; left: 40px; bottom: -80px;  z-index: 15;
+}
+.profile_box{ width: 150px; height: 150px;
+    -webkit-border-radius:100%; -moz-border-radius:100%; -ms-border-radius:100%; border-radius:100%; 
+    background-color: #fff; z-index: 20; overflow: hidden; border: 1px solid #ccc;
+    -webkit-box-shadow: 0px 0px 30px #666; -ms-box-shadow: 0px 0px 30px #666; box-shadow: 0px 0px 30px #666;
+}
+.profile_edit{ color: #000; font-size:14px; text-align: center; position: relative; top: 20px;}

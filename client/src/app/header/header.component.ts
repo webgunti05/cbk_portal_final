@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit {
       if(data.message == "login sucessfully"){
         this.message = data.message;
         this.messageClass = "alert alert-success";
-        this.routeSvc.navigateByUrl('/profile');
+        this.routeSvc.navigateByUrl('/mainpage');
         this.showPopup = false;
         this.showMask = false;
         this.showMyMenu = true;
@@ -168,7 +168,7 @@ export class HeaderComponent implements OnInit {
 @HostListener("window:scroll", [])
 onWindowScroll() {
   let number = this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-  if(number > 100){
+  if(number > 10){
     this.navIsFixed = true;
     this.logoFixed = true;
     this.loginFixed = true;
