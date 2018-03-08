@@ -2,7 +2,7 @@
   <div class="container tabler_bg">
     <!-- <img src="assets/images/tabler.png" class="tab_bg" alt="" title="" width="100%"> -->
     <div class="tab_bg" [style.background-image]="'url(\'assets/images/tabler.png\')'">
-      <iframe class="ivideo" width="100%" src="https://www.youtube.com/embed/Qy706jjeks4?autoplay=1"
+      <iframe class="ivideo" width="100%" src="https://www.youtube.com/embed/Qy706jjeks4"
       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
      </iframe>
     </div>
@@ -20,8 +20,8 @@
       <div class="col-12 col-sm-3 col-md-3 col-lg-3">
         <ul class="lftnav_wrap">
           <li><a (click)="profilePage()"><i class="far fa-user-circle"></i> My Profile</a></li>
-          <li><a><i class="far fa-star"></i> My Celebrities</a></li>
-          <li><a><i class="far fa-money-bill-alt"></i> My Transactions</a></li>
+          <li><a (click)="celebPage()"><i class="far fa-star"></i> My Celebrities</a></li>
+          <li><a (click)="transactionPage()"><i class="far fa-money-bill-alt"></i> My Transactions</a></li>
         </ul> 
       </div>
       <!--left side nav ends-->

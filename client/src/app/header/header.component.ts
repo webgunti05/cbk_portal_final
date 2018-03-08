@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
   private logoBg : String;
   private showPopup : boolean;
   private showMask : boolean;
-  private showMyMenu : boolean;
+  private showMyMenu : boolean = true;
+  private showMyMenu2 : boolean = false;
   private regPopup : boolean;
   private showMask2 : boolean;
   private tab1 : boolean;
@@ -83,12 +84,12 @@ export class HeaderComponent implements OnInit {
         this.routeSvc.navigateByUrl('/mainpage');
         this.showPopup = false;
         this.showMask = false;
-        this.showMyMenu = true;
+        this.showMyMenu2 = true;
         
       } else{
         this.message = data.message;
         this.messageClass = "alert alert-danger";
-        this.showMyMenu = false;
+        this.showMyMenu2 = false;
         
         
       }

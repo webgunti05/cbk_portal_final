@@ -11,10 +11,19 @@ export class MainpageComponent implements OnInit {
   constructor(private routSvc : Router) { }
 
   ngOnInit() {
+   
   }
 
   profilePage(){
     this.routSvc.navigateByUrl('/profile');
+  }
+
+  celebPage(){
+    this.routSvc.navigateByUrl('/celebrities');
+  }
+
+  transactionPage(){
+    this.routSvc.navigateByUrl('/transactions');
   }
 
 }

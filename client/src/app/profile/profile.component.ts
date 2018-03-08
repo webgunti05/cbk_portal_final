@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'profile',
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
   isClassVisible: false;
 
   
-  constructor() { 
+  constructor(private routSvc : Router) { 
     this.infoTab = true;
     this.feedsTab = false;
     this.mediaTab = false;
@@ -50,6 +51,19 @@ export class ProfileComponent implements OnInit {
       this.infoTab = true;
       break;
     }  
+}
+
+
+profilePage(){
+  this.routSvc.navigateByUrl('/profile');
+}
+
+celebPage(){
+  this.routSvc.navigateByUrl('/celebrities');
+}
+
+transactionPage(){
+  this.routSvc.navigateByUrl('/transactions');
 }
 
 }
