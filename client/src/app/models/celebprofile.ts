@@ -1,0 +1,30 @@
+export class celebprofile{
+    _id : any;
+    name : any;
+    email: any;
+username: any;
+password: any;
+mobileNumber: any;
+loginType: any;
+location: any;
+gender: any;
+dateOfBirth: any;
+address: any;
+availableCredits: any;
+IsDeleted: any;
+updated_at: any;
+created_at: any;
+celebToManager: any;
+isCeleb: any;
+status: any;
+preferences: any[];
+role: any;
+__v: any;
+country: any;
+avtar_imgPath: any;
+avtar_originalname: any;
+prefix: any;
+lastName: any;
+profession: any;
+aboutMe: any;
+}

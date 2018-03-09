@@ -24,55 +24,15 @@
 
       <div class="col-12 col-sm-9 col-md-9 col-lg-9">
           <div class="row">
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb">
+
+            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb" *ngFor="let c of interests;">
                 <div class="celeb_pic">
-                  <img src="assets/images/enriq1.jpg" alt="celeb" title="celeb" width="100%">
+                  <img src="{{imageUrl+c.celebProfile.avtar_imgPath}}" alt="celeb" title="celeb" width="100%">
                 </div>
-                <h3 class="celeb_title">Lipsika</h3>
-                <p class="celeb_desig">Singer</p>
+                <h3 class="celeb_title">{{c.celebProfile.name}}</h3>
+                <p class="celeb_desig">{{c.celebProfile.profession}}</p>
             </div>
-
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb">
-                <div class="celeb_pic">
-                  <img src="assets/images/enriq6.jpg" alt="celeb" title="celeb" width="100%">
-                </div>
-                <h3 class="celeb_title">Dhruv Pal Godara</h3>
-                <p class="celeb_desig">Polo Player</p>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb">
-                <div class="celeb_pic">
-                  <img src="assets/images/enriq8.jpg" alt="celeb" title="celeb" width="100%">
-                </div>
-                <h3 class="celeb_title">Seba</h3>
-                <p class="celeb_desig">Actress</p>
-            </div>
-
-
-
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb">
-                <div class="celeb_pic">
-                  <img src="assets/images/enriq7.jpg" alt="celeb" title="celeb" width="100%">
-                </div>
-                <h3 class="celeb_title">Mumaith khan</h3>
-                <p class="celeb_desig">Actress</p>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb">
-                <div class="celeb_pic">
-                  <img src="assets/images/enriq2.jpg" alt="celeb" title="celeb" width="100%">
-                </div>
-                <h3 class="celeb_title">Anudeep Dev</h3>
-                <p class="celeb_desig">Playback Singer</p>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb">
-                <div class="celeb_pic">
-                  <img src="assets/images/enriq9.jpg" alt="celeb" title="celeb" width="100%">
-                </div>
-                <h3 class="celeb_title">Madhukar Nekkanti</h3>
-                <p class="celeb_desig">Cricketer / Hotelier / Philanthropist</p>
-            </div>
+           
       </div>
     </div>
       <!--mid Cont ends-->

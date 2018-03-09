@@ -35,6 +35,11 @@ export class HeaderComponent implements OnInit {
   private menuFixed : boolean;
 
   menuList : Array<any>;
+  private email : any;
+  private id : any;
+  private memberId: any;
+  userbyemail: any;
+
   constructor(private menuSvc : MenuService,
      private routeSvc : Router,
      private Obsvc : ObservableService,
@@ -60,6 +65,8 @@ export class HeaderComponent implements OnInit {
     this.loginFixed = false;
     this.menuFixed = false;
 
+    
+
   }
 
 
@@ -70,6 +77,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
   onLoginSubmit(){
     const user = {
       email : this.loginForm.get('email').value,
@@ -77,11 +85,20 @@ export class HeaderComponent implements OnInit {
     }
    
     this.Obsvc.login(user).subscribe(data =>{
-     console.log(data);
+    // console.log(data);
+      this.email=user.email;
+     //this.id = id;
       if(data.message == "login sucessfully"){
         this.message = data.message;
-        this.messageClass = "alert alert-success";
-        this.routeSvc.navigateByUrl('/mainpage');
+        this.messageClass = "alert alert-success";       
+        
+       
+
+        //console.log("memberId:" + this.email);
+        //this.routeSvc.navigate(['/mainpage/', { id:this.id }]);
+         //this.routeSvc.navigateByUrl('/mainpage', {email:this.email});
+        //this.routeSvc.navigate(['/mainpage/', { id: this.memberId }]);
+         this.routeSvc.navigate(['/mainpage/', { email:this.email }])
         this.showPopup = false;
         this.showMask = false;
         this.showMyMenu2 = true;
@@ -95,6 +112,19 @@ export class HeaderComponent implements OnInit {
       }
     });
 
+  }
+  onGetMemberByEmail() {
+    const user = {
+      email: this.loginForm.get('email').value,
+      password: this.loginForm.get('password').value
+    }
+    this.Obsvc.getMemberByEmail(user.email).subscribe(result => {
+      this.userbyemail = result;
+      console.log("data:" + this.userbyemail);
+      //this.email = this.userbyemail.email;
+      //this.memberId = this.userbyemail._id;
+    });
+    return this.userbyemail;
   }
 
  
@@ -123,7 +153,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+   this.onGetMemberByEmail();
   }
 
   getRegiTabs(id : string, event){
