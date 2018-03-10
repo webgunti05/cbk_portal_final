@@ -3,6 +3,8 @@ import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Headers, Response, RequestOptions  } from '@angular/http';
 import 'rxjs/add/operator/map';
+//import { member } from '../models/member';
+
 
 @Injectable()
 
@@ -10,7 +12,8 @@ export class ObservableService {
 
     private isUserLoggedIn:Subject<any>
     result : any;
-    id: any;
+    id: number;
+
     constructor(private http : Http){
         this.isUserLoggedIn= new Subject<any>();
     }
@@ -49,11 +52,17 @@ getMemberByEmail(email:any): Observable<any>{
 
 }
 
-  getCelebrityById(id: any): Observable<any[]>{
+  getCelebrityById(id: number): Observable<any[]>{
     this.id = id;
     console.log("Celeb id:" + id);
-    return this.http.get('http://13.58.150.195:4300/memberpreferences/getCelebritiesBySelectedPreferences/' + "5a8d1278d44fbe0b24365e6c" + '')
+    return this.http.get('http://13.58.150.195:4300/memberpreferences/getCelebritiesBySelectedPreferences/' + id + '')
       .map((res: Response)=>res.json());
 }
+
+  onGetProfileByEmail(emailid: any): Observable<any> {
+    console.log("service" + emailid);
+  return this.http.get('http://13.58.150.195:4300/users/getMemberByEmail/' + emailid + '').map((res: Response) =>
+      res.json());
+  }
 
 }

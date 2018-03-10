@@ -45,7 +45,7 @@
               </ul>
 
               <div class="profile_manager">
-                <div class="profile_box"><img src="assets/images/enriq1.jpg" class="act_bg" width="100%" alt="Lipsika" title="Lipsika"></div>
+                <div class="profile_box"><img src="{{imageUrl+profile.avtar_imgPath}}" class="act_bg" width="100%" alt="{{profile.name}}" title="{{profile.name}}"></div>
                   <p class="profile_edit"><i class="fas fa-pencil-alt"></i> Edit</p>
               </div>
             </div>
@@ -56,19 +56,19 @@
           <ul>
             <li>
               <span>Name</span>
-              <p>Lipsika</p>
+              <p>{{profile.name}}</p>
           </li>
           <li>
               <span>Occupation</span>
-              <p>Singer</p>
+              <p>{{profile.profession}} </p>
           </li>
           <li>
               <span>Country</span>
-              <p>India</p>
+              <p>{{profile.country}}</p>
           </li>
-          <li>
+          <!--<li>
               <button type="button" class="btn btn-default flw_btn">Follow</button>
-          </li>
+          </li>-->
           <div class="clearfix"></div>
           </ul>
         </div>
@@ -94,9 +94,7 @@
          <!-- tabs data here-->
          <div class="row prof_infodata" *ngIf="infoTab">
             <h3>About Me</h3>
-            <p>Iam an Indian film Singer, worked predominantly in Telugu movie industry.
-               I worked in popular movies like Temper, Swimming Pool.
-                My previous film to hit the theatres was Temper.</p>
+            <p>{{profile.aboutMe}}</p>
         </div>
 
 

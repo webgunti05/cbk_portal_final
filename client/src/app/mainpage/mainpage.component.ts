@@ -17,7 +17,9 @@ export class MainpageComponent implements OnInit {
   private email : any;
   private id : any;
   private cc :  celebprofile;
-  constructor(private routSvc : Router,public route : ActivatedRoute, private cbOvc : ObservableService) { }
+  constructor(private routSvc: Router, public route: ActivatedRoute, private cbOvc: ObservableService) {
+    this.email = this.email;
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -25,20 +27,21 @@ export class MainpageComponent implements OnInit {
      console.log("email:"+this.email);
     });
 
-    //  this.route.params.subscribe(params => {
-    //    this.id =params['id'];
-    //    console.log("id:"+this.id);
-    //  });
+      this.route.params.subscribe(params => {
+        this.id =params['id'];
+        console.log("id:"+this.id);
+      });
 
     this.getMemberByEmail(this.email);
   }
 
   profilePage(){
-    this.routSvc.navigateByUrl('/profile');
+    //this.routSvc.navigateByUrl('/profile');
+    this.routSvc.navigate(['/profile/', { email: this.email, id: this.id  }]);
   }
 
   celebPage() {
-    this.routSvc.navigate(['/celebrities/', { email: this.email }]);
+    this.routSvc.navigate(['/celebrities/', { email: this.email, id : this.id }]);
     // this.routSvc.navigateByUrl('/celebrities' email:);
   }
 
@@ -46,12 +49,23 @@ export class MainpageComponent implements OnInit {
     this.routSvc.navigateByUrl('/transactions');
   }
 
-  getMemberByEmail(email : any){
-    this.email = email;
-    this.cbOvc.getMemberByEmail(email).subscribe(data => {
-      console.log(data);
+  //getMemberByEmail(email : any){
+  //  this.email = email;
+  //  this.cbOvc.getMemberByEmail(email).subscribe(data => {
+  //    console.log(data);
 
-      });
+  //    });
+  //}
+
+  getMemberByEmail(email: any) {
+    email = this.email;
+    this.cbOvc.getMemberByEmail(this.email).subscribe(x => {
+      console.log("testingid" + x._id);
+      this.id = x._id;
+
+      console.log("final" + this.id);
+    });
+    return this.id;
   }
 
 }

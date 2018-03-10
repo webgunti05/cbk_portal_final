@@ -15,14 +15,14 @@ export class HeaderComponent implements OnInit {
   private logoBg : String;
   private showPopup : boolean;
   private showMask : boolean;
-  private showMyMenu : boolean = true;
-  private showMyMenu2 : boolean = false;
+  private showMyMenu : boolean;
+  private showMyMenu2 : boolean;
   private regPopup : boolean;
   private showMask2 : boolean;
   private tab1 : boolean;
   private tab2 : boolean;
   private tab3 : boolean;
-  private tab4 : boolean;
+  private tab4: boolean;
 
   loginForm: FormGroup;
   message;
@@ -39,6 +39,8 @@ export class HeaderComponent implements OnInit {
   private id : any;
   private memberId: any;
   userbyemail: any;
+
+ 
 
   constructor(private menuSvc : MenuService,
      private routeSvc : Router,
@@ -65,6 +67,12 @@ export class HeaderComponent implements OnInit {
     this.loginFixed = false;
     this.menuFixed = false;
 
+    this.showMyMenu2 = false;
+    this.showMyMenu = true;
+
+
+    //this.email = localStorage.getItem('loginSessId');
+
     
 
   }
@@ -78,7 +86,10 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  onLoginSubmit(){
+  onLoginSubmit() {
+
+    
+
     const user = {
       email : this.loginForm.get('email').value,
       password : this.loginForm.get('password').value
@@ -87,27 +98,31 @@ export class HeaderComponent implements OnInit {
     this.Obsvc.login(user).subscribe(data =>{
     // console.log(data);
       this.email=user.email;
+      
      //this.id = id;
       if(data.message == "login sucessfully"){
         this.message = data.message;
-        this.messageClass = "alert alert-success";       
-        
+        this.messageClass = "alert alert-success";
+               
+        localStorage.setItem('loginSessId', user.email);
        
 
         //console.log("memberId:" + this.email);
         //this.routeSvc.navigate(['/mainpage/', { id:this.id }]);
          //this.routeSvc.navigateByUrl('/mainpage', {email:this.email});
         //this.routeSvc.navigate(['/mainpage/', { id: this.memberId }]);
-         this.routeSvc.navigate(['/mainpage/', { email:this.email }])
+         this.routeSvc.navigate(['/mainpage/', { email:this.email, id : this.id }])
         this.showPopup = false;
         this.showMask = false;
         this.showMyMenu2 = true;
+        this.showMyMenu = false;
         
       } else{
         this.message = data.message;
         this.messageClass = "alert alert-danger";
-        this.showMyMenu2 = false;
-        
+        this.showMyMenu2 = true;
+        this.showMyMenu = false;
+       // localStorage.setItem('loginSessId', user.email);
         
       }
     });
@@ -122,7 +137,7 @@ export class HeaderComponent implements OnInit {
       this.userbyemail = result;
       console.log("data:" + this.userbyemail);
       //this.email = this.userbyemail.email;
-      //this.memberId = this.userbyemail._id;
+      this.memberId = this.userbyemail._id;
     });
     return this.userbyemail;
   }

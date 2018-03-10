@@ -71,7 +71,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
       { path : 'communityguidlines', component : CommunityComponent},
       { path : 'mainpage', component : MainpageComponent},
       { path : 'celebrities', component : CelebritiesComponent},
-      { path : 'transactions', component : TransactionsComponent}
+      { path: 'transactions', component: TransactionsComponent },
+      
     ])
   ],
   providers: [

@@ -17,6 +17,7 @@ export class CelebritiesComponent implements OnInit {
   interests: celebprofile[];
   imageUrl: any = "http://13.58.150.195:4300/";
   public test: any;
+  private name = localStorage.getItem('loginSessId');
 
   constructor(private routSvc : Router, private cbOvc : ObservableService, public route : ActivatedRoute) {
     this.cbOvc.getCelebrities(this.email)
@@ -37,33 +38,45 @@ export class CelebritiesComponent implements OnInit {
 
        //this.getlistofinterests(this.test);
     });
+
+    console.log("session" + this.name);
+    
+     this.route.params.subscribe(params => {
+       this.id = params['id'];
+       console.log("id:" + this.id);
+     });
+
+
      this.test = this.getMemberByEmail(this.email);
-     alert(this.test);
+     //alert(this.test);
      this.getlistofinterests(this.test);
     this.route.params.subscribe(params => {
       this.id = params['id'];
      // console.log("mid:" + this.id);
     });
 
-    this.getCelebrityById();
+    this.getCelebrityById(this.id);
+
+
    
   }
 
   profilePage(){
-    this.routSvc.navigateByUrl('/profile');
+    //this.routSvc.navigateByUrl('/profile');
+    this.routSvc.navigate(['/profile/', { email: this.email, id: this.id }]);
   }
   
   celebPage(){
-    this.routSvc.navigate(['/celebrities/', { id:this.id }]);
+    this.routSvc.navigate(['/celebrities/', { email: this.email, id:this.id }]);
   }
   
   transactionPage(){
     this.routSvc.navigateByUrl('/transactions');
   }
 
-  getCelebrityById(){
-    
-    this.cbOvc.getCelebrityById(this.id).subscribe(data => {
+  getCelebrityById(id : any){
+    id = this.id;
+    this.cbOvc.getCelebrityById(id).subscribe(data => {
     this.celebsProfile = data;
     console.log("celebsProfile:" +data);
     });
@@ -83,7 +96,7 @@ export class CelebritiesComponent implements OnInit {
   }
 
 
-  getlistofinterests(id:any) {
+  getlistofinterests(id:number) {
     id = this.id;
     console.log("tr" + this.test);
     this.cbOvc.getCelebrityById(this.id).subscribe(interests => {

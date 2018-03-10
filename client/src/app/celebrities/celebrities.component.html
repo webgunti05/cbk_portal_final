@@ -27,7 +27,7 @@
 
             <div class="col-6 col-sm-6 col-md-4 col-lg-4 spacer_celeb" *ngFor="let c of interests;">
                 <div class="celeb_pic">
-                  <img src="{{imageUrl+c.celebProfile.avtar_imgPath}}" alt="celeb" title="celeb" width="100%">
+                  <img src="{{imageUrl+c.celebProfile.avtar_imgPath}}" alt="{{c.celebProfile.name}}" title="{{c.celebProfile.name}}" width="100%">
                 </div>
                 <h3 class="celeb_title">{{c.celebProfile.name}}</h3>
                 <p class="celeb_desig">{{c.celebProfile.profession}}</p>
