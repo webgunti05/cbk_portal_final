@@ -71,7 +71,7 @@ export class CelebritiesComponent implements OnInit {
   }
   
   transactionPage(){
-    this.routSvc.navigateByUrl('/transactions');
+    this.routSvc.navigate(['/transactions/', { email: this.email, id: this.id }]);
   }
 
   getCelebrityById(id : any){

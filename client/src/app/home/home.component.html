@@ -1,69 +1,69 @@
 <div class="container-fluid appload_cont" [style.background-image]="'url(\'assets/images/land_bg.jpg\')'">
-    <div class="container">
+  <div class="container">
 
-        <div class="row top_row">
-            <div class="col-12 mydata">
-                <h1 class="site_hdng">
-                    <span class="konect_hdng">A New way to konect </span>
-                    <span class="celebs_hdng"> Celebrities and Fans </span>
-                </h1>
-                <button type="button" (click)="showRegPopup()" class="btn-btn-primary sgpbtn">Signup Now</button>
-            </div>
-           
-        </div>
-       
-
-        <div class="row bot_row tabg_data">
-                <div class="tab_bgr">
-                    <img [src]="tabBg" width="100%" alt="tab" title="tab">
-                </div>
-        </div>
+    <div class="row top_row">
+      <div class="col-12 mydata">
+        <h1 class="site_hdng">
+          <span class="konect_hdng">A New way to konect </span>
+          <span class="celebs_hdng"> Celebrities and Fans </span>
+        </h1>
+        <button type="button" (click)="showRegPopup()" class="btn-btn-primary sgpbtn">Signup Now</button>
+      </div>
 
     </div>
+
+
+    <div class="row bot_row tabg_data">
+      <div class="tab_bgr">
+        <img [src]="tabBg" width="100%" alt="tab" title="tab">
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div class="container-fluid hmpage_btnswrap">
-    <div class="container">
-        <div class="row cntr_box">
+  <div class="container">
+    <div class="row cntr_box">
 
 
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <h2 class="dwn_hdng">Download the app</h2>
-                       
-                        <div class="btn btn-app-store">
-                                <i class="fab fa-android fa-2x ibtn"></i>
-                            <span class="small">Download on the</span>
-                            <span class="big">Play Store</span>
-                        </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+        <h2 class="dwn_hdng">Download the app</h2>
 
-                        <div class="btn btn-app-store">
-                            <i class="fab fa-apple fa-2x ibtn"></i>
-                            <span class="small">Download on the</span>
-                            <span class="big">App Store</span>
-                        </div>
-                           
-                    </div>
-
-
-
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 add_lftbord">
-                        <h2 class="dwn_hdng dwn2">Konect with us</h2>
-                        <ul class="sc_wrap">
-                            <li class="fb">
-                                <span><i class="fab fa-facebook-f"></i> Facebook</span>
-                            </li>
-                            <li class="lin">
-                                <span><i class="fab fa-instagram"></i> Instagram</span>
-                            </li>
-
-                            <li class="tw">
-                                <span><i class="fab fa-twitter"></i> Instagram</span>
-                            </li>
-                        </ul>
-                    </div>
-
+        <div class="btn btn-app-store">
+          <i class="fab fa-android fa-2x ibtn"></i>
+          <span class="small">Download on the</span>
+          <span class="big">Play Store</span>
         </div>
+
+        <div class="btn btn-app-store">
+          <i class="fab fa-apple fa-2x ibtn"></i>
+          <span class="small">Download on the</span>
+          <span class="big">App Store</span>
+        </div>
+
+      </div>
+
+
+
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 add_lftbord">
+        <h2 class="dwn_hdng dwn2">Konect with us</h2>
+        <ul class="sc_wrap">
+          <li class="fb">
+            <span><i class="fab fa-facebook-f"></i> Facebook</span>
+          </li>
+          <li class="lin">
+            <span><i class="fab fa-instagram"></i> Instagram</span>
+          </li>
+
+          <li class="tw">
+            <span><i class="fab fa-twitter"></i> Instagram</span>
+          </li>
+        </ul>
+      </div>
+
     </div>
+  </div>
 </div>
 
 
@@ -71,217 +71,269 @@
 <!--Rgisteration Setup -->
 
 <div class="register_wrapper" *ngIf="regPopup">
-        <h2 class="regi_title">Create your Account</h2>
-    
-        <ul class="regtabs">
-          <li id="prof" (click)="getRegiTabs('prof', $event)" class="reg_active">
-            <i class="far fa-user fa-2x"></i>
-            <p>Profile</p>
-          </li>
-    
-          <li id="inter"  (click)="getRegiTabs('inter', $event)">
-            <i class="fas fa-sliders-h fa-2x"></i>
-            <p>Preferences</p>
+  <h2 class="regi_title">Create your Account</h2>
+
+  <ul class="regtabs">
+    <li id="prof" (click)="getRegiTabs('prof', $event)" class="reg_active">
+      <i class="far fa-user fa-2x"></i>
+      <p>Profile</p>
+    </li>
+
+    <li id="inter" (click)="getRegiTabs('inter', $event)">
+      <i class="fas fa-sliders-h fa-2x"></i>
+      <p>Preferences</p>
+    </li>
+
+    <li id="pref" (click)="getRegiTabs('pref', $event)">
+      <span class="list_user"><i class="far fa-list-alt fa-2x"></i></span>
+      <p>Interests</p>
+    </li>
+
+    <li class="list_latchild" id="fin" (click)="getRegiTabs('fin', $event)">
+      <span class="list_user"><i class="far fa-flag fa-2x"></i></span>
+      <p>Finish</p>
+    </li>
+    <div class="clearfix"></div>
+  </ul>
+
+  <!--tabs over-->
+
+  <div class="prof_setupBox" *ngIf="tab1">
+    <h3 class="pi_hdng">Provide your profile Information</h3>
+
+    <form [formGroup]="formProfile" (ngSubmit)="onProfileRegister()">
+
+      <div class="form-group embx embx2">
+        <label for="firstname">First Name:</label>
+        <input type="text" class="form-control lg_email reg_email" id="firstname" [(ngModel)]="firstname" formControlName="firstname" placeholder="First Name">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="lastname">Last Name:</label>
+        <input type="text" class="form-control lg_email reg_email" id="lastname" [(ngModel)]="lastname" formControlName="lastname" placeholder="Last Name:">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="mobileNumber">Mobile:</label>
+        <input type="number" class="form-control lg_email reg_email" id="mobile" [(ngModel)]="mobileNumber" formControlName="mobileNumber" placeholder="Mobile">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control lg_email reg_email" id="location" [(ngModel)]="location" formControlName="location" placeholder="location">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="country">Country:</label>
+        <input type="text" class="form-control lg_email reg_email" id="country" [(ngModel)]="country" formControlName="country" placeholder="ex:IN (Country Code)">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="profession">Profession:</label>
+        <input type="text" class="form-control lg_email reg_email" id="profession" [(ngModel)]="profession" formControlName="profession" placeholder="Profession">
+      </div>
+
+      <!--<div class="form-group embx embx2">
+        <label for="aboutme">About Me:</label>
+        <input type="text" class="form-control lg_email reg_email" id="aboutme" [ngModel]="aboutme" formControlName="aboutme" placeholder="About Me">
+      </div>-->
+
+      <div class="form-group embx embx2">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control lg_email reg_email" id="email" [(ngModel)]="email" formControlName="email" placeholder="ex : John@indoz.com">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control lg_email reg_email" id="password" [(ngModel)]="password" formControlName="password" placeholder="**********">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" class="form-control lg_email reg_email" id="confirmPassword" [(ngModel)]="confirmPassword" formControlName="confirmPassword" placeholder="**********">
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="gender">Gender:</label>
+        <select class="form-control lg_email reg_email" id="gender" [(ngModel)]="gender" formControlName="gender" style="width: 170px;">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="dateOfBirth">Birthday:</label>
+        <input type="date" class="form-control lg_email reg_email" format='mm-dd-yyyy' [(ngModel)]="dateOfBirth" formControlName="dateOfBirth" id="dateOfBirth" placeholder="Birthday" />
+      </div>
+
+      <!--<div class="form-group embx embx2">
+        <label for="profile">Profile Pic:</label>
+        <input type="text" class="form-control lg_email reg_email" id="profile" placeholder="ex : mypic.jpeg">
+      </div>-->
+
+
+      <button type="submit" class="btn btn-default lgnbtner rgbtnr">Save & Continue <i class="fas fa-chevron-right"></i> </button>
+      <div class="clearfix"></div>
+
+    </form>
+  </div>
+
+  <!--profile tab over-->
+
+
+
+
+  <div class="pref_setupBox" *ngIf="tab2">
+    <h3 class="pi_hdng">Select your Preferences</h3>
+
+    <form>
+
+      <div class="form-group embx embx2">
+        <label for="sports">Sports:</label>
+
+        <select class="form-control lg_email reg_email prefbx"
+                placeholder="ex : Football, Cricket"
+                [style.background-image]="'url(\'assets/images/down-arrow2.png\')'"
+                [(ngModel)]="preferenceParentId" name="preferenceParentId"
+                (change)="onPreferenceListByParentId()">
+          <option *ngFor="let item of preferences" value="{{item._id}}">{{item.preferenceName}}</option>
+          <!--<option>Baseball</option>
+          <option>Cricket</option>
+          <option>Tennis</option>-->
+        </select>
+      </div>
+
+      <div class="form-group embx embx2">
+        <label for="movies">Movies:</label>
+        <!--<angular2-multiselect [data]="preferences"
+                              [(ngModel)]="preferenceParentIds"
+                              [settings]="settings"
+                              (onSelect)="onItemSelect($event)"
+                              (onDeSelect)="OnItemDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
+                              (onDeSelectAll)="onDeSelectAll($event)"
+                              [ngModelOptions]="{standalone: true}">
+        </angular2-multiselect>
+
+        <angular2-multiselect [data]="itemList"
+                              [(ngModel)]="selectedItems"
+                              [settings]="settings"
+                              (onSelect)="onItemSelect($event)"
+                              (onDeSelect)="OnItemDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
+                              (onDeSelectAll)="onDeSelectAll($event)"
+                              [ngModelOptions]="{standalone: true}">
+        </angular2-multiselect>-->
+        <!--<angular2-multiselect [data]="preferencesChild" [(ngModel)]="preferenceId"
+                              (onSelect)="onPreferenceChildByParentId($event)"
+                              (onDeSelect)="OnItemDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
+                              (onDeSelectAll)="onDeSelectAll($event)"
+                               [ngModelOptions]="{standalone: true}">
+                            *ngIf="preferencesChild != undefined"
+        </angular2-multiselect>-->
+        <select class="form-control lg_email reg_email prefbx"
+                placeholder="ex : Football, Cricket"
+                [style.background-image]="'url(\'assets/images/down-arrow2.png\')'"
+                [(ngModel)]="preferenceId" name="preferenceId"
+                (change)="onPreferenceChildByParentId()" multiple>
+          <option *ngFor="let item of preferencesChild" value="{{item._id}}">{{item.preferenceName}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-default lgnbtner rgbtnr" (click)="onAddPreferences()">Save & Continue <i class="fas fa-chevron-right"></i> </button>
+      <div class="clearfix"></div>
+
+    </form>
+  </div>
+
+  <!--Preferences  tab over-->
+
+
+
+
+
+  <div class="intrest_setupBox" *ngIf="tab3">
+    <h3 class="pi_hdng">Tell us about your Interests</h3>
+
+    <form>
+      <ul class="interest_lists" *ngFor="let item of memberInterest">
+        <li>
+          <div class="pref_img">
+            <img src="{{imageUrl+item.celebProfile.avtar_imgPath}}" alt="" width="100%">
+          </div>
+
+          <p>{{item.celebProfile.name}}</p>
+          <small>{{item.celebProfile.profession}}</small>
+        </li>
+
+        <!--<li>
+          <div class="pref_img">
+              <img src="assets/images/enriq2.jpg" alt="Anudeep" title="Anudeep" width="100%">
+          </div>
+
+            <p>Anudeep Dev</p>
+            <small>Indian Playback Singer</small>
           </li>
 
-          <li id="pref"  (click)="getRegiTabs('pref', $event)">
-            <span class="list_user"><i class="far fa-list-alt fa-2x"></i></span>
-            <p>Interests</p>
-          </li>
+          <li>
+              <div class="pref_img">
+                  <img src="assets/images/enriq6.jpg" alt="Dhruv" title="Dhruv" width="100%">
+              </div>
 
-          <li class="list_latchild" id="fin"  (click)="getRegiTabs('fin', $event)">
-            <span class="list_user"><i class="far fa-flag fa-2x"></i></span>
-            <p>Finish</p>
-          </li>
-          <div class="clearfix"></div>
-        </ul>
-    
-        <!--tabs over-->
-    
-        <div class="prof_setupBox" *ngIf="tab1">
-            <h3 class="pi_hdng">Provide your profile Information</h3>
-    
-            <form> 
-      
-                <div class="form-group embx embx2">
-                  <label for="username">Email:</label>
-                  <input type="text" class="form-control lg_email reg_email" id="name" placeholder="ex : John@indoz.com">
-                </div>
-      
-                <div class="form-group embx embx2">
-                  <label for="email">Email:</label>
-                    <input type="email" class="form-control lg_email reg_email" id="email" placeholder="ex : John@indoz.com">
-                </div> 
-               
-      
-                <div class="form-group embx embx2">
-                  <label for="password">Password:</label>
-                    <input type="password" class="form-control lg_email reg_email" id="password" placeholder="**********">
-                </div>
-      
-                <div class="form-group embx embx2">
-                    <label for="profile">Profile Pic:</label>
-                      <input type="text" class="form-control lg_email reg_email" id="profile" placeholder="ex : mypic.jpeg">
-                  </div>
-                
-                
-                  <button type="submit" class="btn btn-default lgnbtner rgbtnr">Save & Continue <i class="fas fa-chevron-right"></i> </button>
-                  <div class="clearfix"></div>
-                
-              </form>
-        </div>
-    
-        <!--profile tab over-->
-    
-    
-    
-    
-        <div class="pref_setupBox" *ngIf="tab2">
-            <h3 class="pi_hdng">Select your Preferences</h3>
-    
-            <form> 
-      
-                <div class="form-group embx embx2">
-                  <label for="sports">Sports:</label>
-                  
-                  <select class="form-control lg_email reg_email prefbx" placeholder="ex : Football, Cricket"
-                   [style.background-image]="'url(\'assets/images/down-arrow2.png\')'">
-                    <option>Football</option>
-                    <option>Baseball</option>
-                    <option>Cricket</option>
-                    <option>Tennis</option>
-                  </select>
-                </div>
-      
-                <div class="form-group embx embx2">
-                  <label for="movies">Movies:</label>
-                    
-                  <select class="form-control lg_email reg_email prefbx" placeholder="ex : Hollywood, Bollywood"
-                  [style.background-image]="'url(\'assets/images/down-arrow2.png\')'">
-                    <option>Hollywood</option>
-                    <option>Bollywood</option>
-                    <option>TollyWood</option>
-                    <option>Kollywood</option>
-                  </select>
-                </div> 
-               
-      
-                <div class="form-group embx embx2">
-                  <label for="televisions">Televisions:</label>
-    
-                  <select class="form-control lg_email reg_email prefbx" placeholder="ex : T.V. Shows, T.V. Serials"
-                  [style.background-image]="'url(\'assets/images/down-arrow2.png\')'">
-                      <option>T.V. Shows</option>
-                      <option>T.V. Serials</option>
-                  </select>
-                </div>
-    
-      
-                <div class="form-group embx embx2">
-                    <label for="politicians">Politicians:</label>
-    
-                    <select class="form-control lg_email reg_email prefbx" placeholder="ex : PM, CM"
-                    [style.background-image]="'url(\'assets/images/down-arrow2.png\')'">
-                        <option>PM</option>
-                        <option>CM</option>
-                        <option>MP</option>
-                        <option>MLA</option>
-                    </select>
-                  </div>
-                
-                
-                  <button type="submit" class="btn btn-default lgnbtner rgbtnr">Save & Continue <i class="fas fa-chevron-right"></i> </button>
-                  <div class="clearfix"></div>
-                
-              </form>
-        </div>
-    
-        <!--Preferences  tab over-->
-    
-    
-    
-    
-    
-        <div class="intrest_setupBox" *ngIf="tab3">
-            <h3 class="pi_hdng">Tell us about your Interests</h3>
-    
-            <form> 
-                <ul class="interest_lists">
-                  <li>
-                    <div class="pref_img">
-                        <img src="assets/images/enriq1.jpg" alt="Lipsika" title="Lipsika" width="100%">
-                    </div>
-                    
-                    <p>Lipsika</p>
-                    <small>Indian Film Singer</small>
-                  </li>
-    
-                  <li>
-                    <div class="pref_img">
-                        <img src="assets/images/enriq2.jpg" alt="Anudeep" title="Anudeep" width="100%">
-                    </div>
-                      
-                      <p>Anudeep Dev</p>
-                      <small>Indian Playback Singer</small>
-                    </li>
-    
-                    <li>
-                        <div class="pref_img">
-                            <img src="assets/images/enriq6.jpg" alt="Dhruv" title="Dhruv" width="100%">
-                        </div>
-                        
-                        <p>Dhruv Pal Godara</p>
-                        <small>Polo Player</small>
-                      </li>
-    
-                      <li>
-                        <div class="pref_img">
-                            <img src="assets/images/enriq7.jpg" alt="Mumaith Khan" title="Mumaith Khan" width="100%">
-                        </div>
-                          
-                          <p>Mumaith Khan</p>
-                          <small>Actress</small>
-                        </li>
-    
-                        <div class="clearfix"></div>
-                </ul>
-                <button type="submit" class="btn btn-default lgnbtner rgbtnr">Save & Continue <i class="fas fa-chevron-right"></i> </button>
-                <div class="clearfix"></div>
-            </form>
-        </div>
-    
-        <!--Intrestes  tab over-->
-    
-          
-    
-    
-    
-        <div class="intrest_setupBox" *ngIf="tab4">
-            <h3 class="pi_hdng pi_hdng2">Thank You</h3>
-               <p class="thank_data">Experience the wonderfull design of our app. <br/>Download from </p>
-    
-                  <div class="btn btn-app-store">
-                      <i class="fab fa-android fa-2x ibtn"></i>
-                    <span class="small">Download on the</span>
-                    <span class="big">Play Store</span>
-                  </div>
-    
-                <div class="btn btn-app-store">
-                    <i class="fab fa-apple fa-2x ibtn"></i>
-                    <span class="small">Download on the</span>
-                    <span class="big">App Store</span>
-                </div><br/><br/><br/>
-    
-                <button type="submit" class="btn btn-default lgnbtner rgbtnr">Finish <i class="fas fa-chevron-right"></i> </button>
-                <div class="clearfix"></div>
-            
-        </div>
-    
-        <!--finish  tab over-->
-    
-    
+              <p>Dhruv Pal Godara</p>
+              <small>Polo Player</small>
+            </li>
+
+            <li>
+              <div class="pref_img">
+                  <img src="assets/images/enriq7.jpg" alt="Mumaith Khan" title="Mumaith Khan" width="100%">
+              </div>
+
+                <p>Mumaith Khan</p>
+                <small>Actress</small>
+              </li>-->
+
+        <div class="clearfix"></div>
+      </ul>
+      <button type="submit" class="btn btn-default lgnbtner rgbtnr" (click)="getRegiTabs('fin', $event)">Save & Continue <i class="fas fa-chevron-right"></i> </button>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+
+  <!--Intrestes  tab over-->
+
+
+
+
+
+  <div class="intrest_setupBox" *ngIf="tab4">
+    <h3 class="pi_hdng pi_hdng2">Thank You</h3>
+    <p class="thank_data">Experience the wonderfull design of our app. <br />Download from </p>
+
+    <div class="btn btn-app-store">
+      <i class="fab fa-android fa-2x ibtn"></i>
+      <span class="small">Download on the</span>
+      <span class="big">Play Store</span>
     </div>
-    <div class="regimasker" *ngIf="showMask2" (click)="closeRegiPop()"></div>
+
+    <div class="btn btn-app-store">
+      <i class="fab fa-apple fa-2x ibtn"></i>
+      <span class="small">Download on the</span>
+      <span class="big">App Store</span>
+    </div><br /><br /><br />
+
+    <button type="submit" class="btn btn-default lgnbtner rgbtnr" (click)="onFinish()">Finish <i class="fas fa-chevron-right"></i> </button>
+    <div class="clearfix"></div>
+
+  </div>
+
+  <!--finish  tab over-->
+
+
+</div>
+<div class="regimasker" *ngIf="showMask2" (click)="closeRegiPop()"></div>
 
 
 

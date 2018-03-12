@@ -26,6 +26,7 @@ import { CreditsComponent } from './credits/credits.component';
 import { ObservableService } from './services/observable.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { RegisterService } from './services/register.service';
 
 
 
@@ -77,7 +78,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
   ],
   providers: [
     MenuService,
-    ObservableService
+    ObservableService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })
