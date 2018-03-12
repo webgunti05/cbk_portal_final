@@ -88,8 +88,6 @@ export class HeaderComponent implements OnInit {
 
   onLoginSubmit() {
 
-    
-
     const user = {
       email : this.loginForm.get('email').value,
       password : this.loginForm.get('password').value
@@ -127,6 +125,11 @@ export class HeaderComponent implements OnInit {
       }
     });
 
+  }
+
+  onLogout() : void{
+    this.routeSvc.navigate(['/home/', { email:this.email, id : this.id }]);
+    window.location.reload();
   }
   onGetMemberByEmail() {
     const user = {

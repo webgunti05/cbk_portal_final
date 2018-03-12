@@ -11,7 +11,7 @@
             <li><a [routerLink]="'home'">Home</a></li>
             <li><a [routerLink]="'profile'">Explore</a></li>
             <li><a [routerLink]="'credits'">Credits</a></li>
-            <li><a [routerLink]="'javscript:void'">Logout</a></li>
+            <li (click)="onLogout()"><a [routerLink]="'javscript:void'">Logout</a></li>
         </ul>
 
           

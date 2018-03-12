@@ -29,7 +29,6 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { RegisterService } from './services/register.service';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
