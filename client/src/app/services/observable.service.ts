@@ -65,4 +65,10 @@ getMemberByEmail(email:any): Observable<any>{
       res.json());
   }
 
+  onGetContentByID(id: any): Observable<any[]> {
+    return this.http.get('http://13.58.150.195:4300/feeddata/getFeedByMemberId/' + id + '').map((res: Response) => res.json());
+  }
+
+
+
 }

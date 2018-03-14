@@ -19,6 +19,8 @@ export class ProfileComponent implements OnInit {
   private id: any;
   imageUrl: any = "http://13.58.150.195:4300/";
   private name = localStorage.getItem('loginSessId');
+  feedDetails: any[];
+  errorMessage: string;
 
   
   constructor(private routSvc: Router, private cbOvc: ObservableService, public route: ActivatedRoute) { 
@@ -41,17 +43,25 @@ export class ProfileComponent implements OnInit {
 
     this.infoTab = true;
     this.ongetprofilebyemail(this.email);
+    this.getMemberByEmail(this.email);
 
     console.log("session" + this.name);
   }
 
   showProfileTabs(id : string, event){
+    var infotab = document.getElementById('infoT');
+    var feedtab = document.getElementById('feedT');
+    var mediatab = document.getElementById('mediaT');
+
     switch(id){
       case 'infoT' :
       this.infoTab = true;
       this.feedsTab = false;
       this.mediaTab = false;
       event.target.classList.add('ptab_active');
+      feedtab.classList.remove('ptab_active');
+      mediatab.classList.remove('ptab_active');
+      
       break;
 
       case 'feedT' :
@@ -59,6 +69,9 @@ export class ProfileComponent implements OnInit {
       this.feedsTab = true;
       this.mediaTab = false;
       event.target.classList.add('ptab_active');
+      infotab.classList.remove('ptab_active');
+      mediatab.classList.remove('ptab_active');
+      this.onGetContentByID();
       break;
 
       case 'mediaT' :
@@ -66,6 +79,9 @@ export class ProfileComponent implements OnInit {
       this.feedsTab = false;
       this.mediaTab = true;
       event.target.classList.add('ptab_active');
+      infotab.classList.remove('ptab_active');
+      feedtab.classList.remove('ptab_active');
+      this.onGetContentByID();
       break;
 
       case 'defualt' :
@@ -75,17 +91,7 @@ export class ProfileComponent implements OnInit {
 }
 
 
-//profilePage(){
-//  this.routSvc.navigateByUrl('/profile');
-//}
 
-//celebPage(){
-//  this.routSvc.navigateByUrl('/celebrities');
-//}
-
-//transactionPage(){
-//  this.routSvc.navigateByUrl('/transactions');
-//}
 
 
   profilePage() {
@@ -108,8 +114,28 @@ ongetprofilebyemail(email : any) {
     this.profile = data;
     console.log(data);
   });
+}
 
+getMemberByEmail(email: any) {
+  email = this.email;
+  this.cbOvc.getMemberByEmail(this.email).subscribe(x => {
+    console.log("testingid" + x._id);
+    this.id = x._id;
 
+    console.log("final" + this.id);
+  });
+  return this.id;
+}
+
+onGetContentByID() {
+
+  this.cbOvc.onGetContentByID(this.id).subscribe(result => {
+    this.feedDetails = result;
+    console.log(this.feedDetails);
+    
+  }, error => this.errorMessage = <any>error);
+  console.log(this.errorMessage);
+  return this.feedDetails;
 }
 
 }

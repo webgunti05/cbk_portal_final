@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from "@angular/platform-browser";
 import { MenuService } from '../services/menu.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ObservableService } from '../services/observable.service';
 
@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit {
   private id : any;
   private memberId: any;
   userbyemail: any;
+  private sub: any;
 
  
 
@@ -46,6 +47,7 @@ export class HeaderComponent implements OnInit {
      private routeSvc : Router,
      private Obsvc : ObservableService,
      private frmBuilder : FormBuilder,
+     public route: ActivatedRoute,
      @Inject(DOCUMENT) private document: Document
     ) {
     this.logoBg = "assets/images/logo-trans.png";
@@ -103,13 +105,12 @@ export class HeaderComponent implements OnInit {
         this.messageClass = "alert alert-success";
                
         localStorage.setItem('loginSessId', user.email);
-       
-
+  
         //console.log("memberId:" + this.email);
         //this.routeSvc.navigate(['/mainpage/', { id:this.id }]);
          //this.routeSvc.navigateByUrl('/mainpage', {email:this.email});
         //this.routeSvc.navigate(['/mainpage/', { id: this.memberId }]);
-         this.routeSvc.navigate(['/mainpage/', { email:this.email, id : this.id }])
+         this.routeSvc.navigate(['/profile/', { email:this.email }])
         this.showPopup = false;
         this.showMask = false;
         this.showMyMenu2 = true;
@@ -128,7 +129,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() : void{
-    this.routeSvc.navigate(['/home/', { email:this.email, id : this.id }]);
+    this.routeSvc.navigate(['/home/']);
     window.location.reload();
   }
   onGetMemberByEmail() {
@@ -172,6 +173,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
    this.onGetMemberByEmail();
+
+   this.route.params.subscribe(params => {
+    this.id =params['id'];
+    console.log("id:"+this.id);
+  });
+   
   }
 
   getRegiTabs(id : string, event){

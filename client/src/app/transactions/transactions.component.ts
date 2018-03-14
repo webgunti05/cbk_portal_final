@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { member } from '../models/member';
+import { ObservableService } from '../services/observable.service';
 
 @Component({
   selector: 'transactions',
@@ -10,7 +12,17 @@ export class TransactionsComponent implements OnInit {
 
   private email: any;
   private id: any;
-  constructor(private routSvc: Router, public route: ActivatedRoute) { }
+
+  private infoTab : boolean;
+  private feedsTab : boolean;
+  private mediaTab : boolean;
+  isClassVisible: false;
+  private profile: member;
+
+  imageUrl: any = "http://13.58.150.195:4300/";
+  private name = localStorage.getItem('loginSessId');
+
+  constructor(private routSvc: Router, private cbOvc: ObservableService, public route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -23,6 +35,8 @@ export class TransactionsComponent implements OnInit {
       this.id = params['id'];
       console.log("id:" + this.id);
     });
+
+    this.ongetprofilebyemail(this.email);
   }
 
   profilePage() {
@@ -36,6 +50,16 @@ export class TransactionsComponent implements OnInit {
 
   transactionPage() {
     this.routSvc.navigate(['/transactions/', { email: this.email, id: this.id }]);
+  }
+
+  ongetprofilebyemail(email : any) {
+    this.email = email;
+    this.cbOvc.onGetProfileByEmail(email).subscribe(data => {
+      this.profile = data;
+      console.log(data);
+    });
+  
+  
   }
 
 }

@@ -57,7 +57,7 @@
           </li>
 
           <li class="tw">
-            <span><i class="fab fa-twitter"></i> Instagram</span>
+            <span><i class="fab fa-twitter"></i> Twitter</span>
           </li>
         </ul>
       </div>
@@ -155,7 +155,8 @@
 
       <div class="form-group embx embx2">
         <label for="gender">Gender:</label>
-        <select class="form-control lg_email reg_email" id="gender" [(ngModel)]="gender" formControlName="gender" style="width: 170px;">
+        <select class="form-control lg_email reg_email" id="gender" [(ngModel)]="gender" formControlName="gender">
+
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="others">Others</option>
@@ -173,7 +174,7 @@
       </div>-->
 
 
-      <button type="submit" class="btn btn-default lgnbtner rgbtnr">Save & Continue <i class="fas fa-chevron-right"></i> </button>
+      <button type="submit"  class="btn btn-default lgnbtner rgbtnr">Save & Continue <i class="fas fa-chevron-right"></i> </button>
       <div class="clearfix"></div>
 
     </form>
@@ -297,7 +298,7 @@
 
         <div class="clearfix"></div>
       </ul>
-      <button type="submit" class="btn btn-default lgnbtner rgbtnr" (click)="getRegiTabs('fin', $event)">Save & Continue <i class="fas fa-chevron-right"></i> </button>
+      <button type="submit" class="btn btn-default lgnbtner rgbtnr" (click)="onAddIntrest()">Save & Continue <i class="fas fa-chevron-right"></i> </button>
       <div class="clearfix"></div>
     </form>
   </div>

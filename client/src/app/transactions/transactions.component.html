@@ -24,7 +24,69 @@
       <!--left side nav ends-->
 
       <div class="col-12 col-sm-9 col-md-9 col-lg-9">
-          <button type="button" class="btn btn-default addcred_btn">Add Credits</button>
+
+        <div class="row">
+            <div class="col-12">
+                    <div class="row">
+                            <div class="col-12">
+                  
+                              <div class="cvrwrap">
+                                  <div class="profile_wrapper">
+                                    <img src="assets/images/coverpage.jpg" class="c_page" width="100%" alt="coverpage" title="coverpage">
+                                    <ul class="title_mask">
+                                      <li>
+                                        <span class="big">500</span>
+                                        <small>Followers</small>
+                                      </li>
+                      
+                                      <li>
+                                        <span class="big">200</span>
+                                        <small>Following</small>
+                                      </li>
+                      
+                                      <li>
+                                        <span class="big">53</span>
+                                        <small>Posts</small>
+                                      </li>
+                                    </ul>
+                      
+                                    <div class="profile_manager">
+                                      <div class="profile_box"><img src="{{imageUrl+profile.avtar_imgPath}}" class="act_bg" width="100%" alt="{{profile.name}}" title="{{profile.name}}"></div>
+                                        <p class="profile_edit"><i class="fas fa-pencil-alt"></i> Edit</p>
+                                    </div>
+                                  </div>
+                              </div>
+                      
+                      
+                              <div class="profile_info">
+                                <ul>
+                                  <li>
+                                    <span>Name</span>
+                                    <p>{{profile.name}}</p>
+                                </li>
+                                <li>
+                                    <span>Occupation</span>
+                                    <p>{{profile.profession}} </p>
+                                </li>
+                                <li>
+                                    <span>Country</span>
+                                    <p>{{profile.country}}</p>
+                                </li>
+                                <!--<li>
+                                    <button type="button" class="btn btn-default flw_btn">Follow</button>
+                                </li>-->
+                                <div class="clearfix"></div>
+                                </ul>
+                              </div>
+                  
+                            </div>
+                          </div>
+            </div>
+        </div>
+
+        <div class="row"  id="celebs_list">
+            <div class="col-12">
+          <button type="button" class="btn btn-default addcred_btn ">Add Credits</button>
           <div class="clearfix"></div>
 
           <div class="table-responsive"> 
@@ -99,6 +161,8 @@
                   </tbody>
               </table>
           </div>
+        </div>
+        </div>
 
       </div>
       <!--mid Cont ends-->

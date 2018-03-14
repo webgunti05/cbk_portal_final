@@ -171,7 +171,9 @@ export class HomeComponent implements OnInit {
         this.tab1 = false;
         this.tab3 = false;
         this.tab4 = true;
+        
         event.target.classList.add('reg_active');
+        
         break;
 
       case 'defualt':
@@ -218,6 +220,9 @@ export class HomeComponent implements OnInit {
     this.tab3 = false;
     this.tab4 = false;
     //event.target.classList.add('reg_active');
+    //event.target.classList.add('reg_active');
+    var myBx = document.getElementById('inter');
+    myBx.classList.add('reg_active');
 
   }
 
@@ -287,10 +292,23 @@ export class HomeComponent implements OnInit {
       this.tab3 = true;
       this.tab4 = false;
 
+      var myBx2 = document.getElementById('pref');
+    myBx2.classList.add('reg_active');
+
       this.onGetCelebritiesByPreferences();
+      
     });
 
 
+  }
+
+  onAddIntrest() {
+    this.tab1 = false;
+      this.tab2 = false;
+      this.tab3 = false;
+      this.tab4 = true;
+      var myBx3 = document.getElementById('fin');
+    myBx3.classList.add('reg_active');
   }
 
   onGetCelebritiesByPreferences() {

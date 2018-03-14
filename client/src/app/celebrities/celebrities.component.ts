@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ObservableService } from '../services/observable.service';
 import { celebprofile } from '../models/celebprofile';
+import { member } from '../models/member';
 
 @Component({
   selector: 'celebrities',
@@ -18,6 +19,14 @@ export class CelebritiesComponent implements OnInit {
   imageUrl: any = "http://13.58.150.195:4300/";
   public test: any;
   private name = localStorage.getItem('loginSessId');
+
+  private infoTab : boolean;
+  private feedsTab : boolean;
+  private mediaTab : boolean;
+  isClassVisible: false;
+
+  private profile: member;
+
 
   constructor(private routSvc : Router, private cbOvc : ObservableService, public route : ActivatedRoute) {
     this.cbOvc.getCelebrities(this.email)
@@ -56,7 +65,10 @@ export class CelebritiesComponent implements OnInit {
     });
 
     this.getCelebrityById(this.id);
+    this.infoTab = true;
+    this.ongetprofilebyemail(this.email);
 
+    console.log("session" + this.name);
 
    
   }
@@ -104,6 +116,16 @@ export class CelebritiesComponent implements OnInit {
       console.log(interests);
     });
    // return this.interests;
+  }
+
+  ongetprofilebyemail(email : any) {
+    this.email = email;
+    this.cbOvc.onGetProfileByEmail(email).subscribe(data => {
+      this.profile = data;
+      console.log(data);
+    });
+  
+  
   }
  
 }

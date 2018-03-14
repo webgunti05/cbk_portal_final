@@ -92,26 +92,142 @@
         </div>
 
          <!-- tabs data here-->
-         <div class="row prof_infodata" *ngIf="infoTab">
-            <h3>About Me</h3>
-            <p>{{profile.aboutMe}}</p>
+         <div class="prof_infodata" *ngIf="infoTab">
 
-        </div>
+            <div class="row mb-3">
+              <div class="col">
+                <h3>About Me</h3>
+                <p>{{profile.aboutMe}}</p>
+              </div>
+  
+              <div class="col">
+                <h3>Date Of Birth</h3>
+                <p>{{profile.dateOfBirth}}</p>
+              </div>
+  
+              <div class="col">
+                <h3>Email</h3>
+                <p>{{profile.email}}</p>
+              </div>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col">
+                <h3>Gender</h3>
+                <p>{{profile.gender}}</p>
+              </div>
+              <div class="col">
+                <h3>Mobile Number</h3>
+                <p>{{profile.mobileNumber}}</p>
+              </div>
+              <div class="col">
+                <h3>Location</h3>
+                <p>{{profile.location}}</p>
+              </div>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col">
+                <h3>Name</h3>
+                <p>{{profile.name}} {{profile.lastName}}</p>
+              </div>
+              <div class="col">
+                <h3>Profession</h3>
+                <p>{{profile.profession}}</p>
+              </div>
+              <div class="col">
+                <h3>Role</h3>
+                <p>{{profile.role}}</p>
+              </div>
+            </div>
+  
+          </div>
 
 
 
 
 
-        <div class="row prof_feedsdata" *ngIf="feedsTab">
-            <h3>Feeds will Flow Here</h3>
-        </div>
+          <div *ngIf="feedsTab">
+              <div class="row prof_feedsdata" *ngFor="let feedList of feedDetails; let i = index">
+                <div class="col">
+                  <div class="card cardspace">
+                    <div class="card-block">
+                      <div class="pl-3">
+                        <div class="row">
+                          
+
+                            <div class="col-12 col-sm-2 col-md-2">
+                              <span>
+                                  <a class="avatar-sm" href="javascript:;">
+                                      <img class="img-fluid rounded-circle" src="{{imageUrl+feedList.profilePicPath}}" />
+                                    </a>
+                              </span>
+                            </div>
+
+                            <div class="col-12 col-sm-10 col-md-10">
+                                <h3>{{feedList.memberName}}</h3>
+                               
+                            </div>
+                            
+                            
+                          
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                    <h4 class="card-title">
+                        {{feedList.title}}
+                    </h4>
+                      <p class="card-text">
+                        {{feedList.content}}
+                      </p>
+
+                    <img *ngIf="feedList.mediaSrc!=''" class="card-img-bottom img-fluid space_imng" src="{{imageUrl+feedList.mediaSrc}}" alt="Card image cap"  />
+                    <div *ngFor="let imgList of feedList.mediaArray">
+                      <img class="card-img-bottom img-fluid space_imng" src="{{imageUrl+imgList.mediaUrl}}" alt="Card image cap" />
+                    </div>
+                    <div style="margin-left: 6px;" class="row" >
+                      <div class="col">
+                          <i class="fas fa-eye fa-2x"></i> &nbsp; 50
+                      </div>
+                      <div class="col" >
+                          <i class="far fa-heart fa-2x"></i> &nbsp; 100
+                      </div>
+                      <div class="col" >
+                          <i class="fas fa-download fa-2x"></i> &nbsp; 10
+                      </div>
+                      <div class="col" >
+                          <i class="fas fa-share-alt fa-2x"></i> &nbsp; 15
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
 
 
 
 
-        <div class="row prof_media" *ngIf="mediaTab">
-            <h3>Media will Shown Here</h3>
-        </div>
+          <div class="row" *ngIf="mediaTab" id="mymedias">
+            <div class="col-12">
+              <div class="row">
+              <div class="col-12 col-sm-4 com-md-4 mybgspacer" *ngFor="let feedList of feedDetails; let i = index">
+                <figure class="media_bg">
+                  <div *ngFor="let imgList of feedList.mediaArray" > 
+                    <img class="img-fluid" src="{{imageUrl+imgList.mediaUrl}}" width="100%" alt="Card image cap"  />
+                 </div>
+                  <img *ngIf="feedList.mediaSrc!=''" src="{{imageUrl+feedList.mediaSrc}}"  width="100%" alt="Card image cap" class="img-fluid" />
+  
+                  <!--<figcaption>
+                    <h6 class="media-title fw-300">{{ id }}</h6>
+                    <small class="media-subtitle">Tile image {{ id }}</small>
+                  </figcaption>-->
+                </figure>
+              </div>
+              
+            </div>
+            </div>
 
 
           
