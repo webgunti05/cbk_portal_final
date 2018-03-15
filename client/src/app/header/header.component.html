@@ -3,20 +3,17 @@
           <a href=""><img [src]="logoBg" alt="CelebKonect Logo" title="CeleKonect Logo" width="100%"></a>
         </div>
 
-        <ul class="cbk_menu" id="loginId" *ngIf="showMyMenu">
+        <ul class="cbk_menu" id="loginId" *ngIf="!Obsvc.loggedIn()">
             <li  class="lgn_btn" (click)="ShowMyPopup()" [class.spaceLogin]="loginFixed"><a >Login</a></li>
           </ul>
 
-        <ul class="cbk_menu" id="menuId" *ngIf="showMyMenu2" [class.spaceForMenu]="menuFixed">
-            <li><a [routerLink]="'mainpage'">Home</a></li>
-            <li><a [routerLink]="'profile'">Explore</a></li>
+        <ul class="cbk_menu" id="menuId" [class.spaceForMenu]="menuFixed" *ngIf="Obsvc.loggedIn()">
+            <li><a [routerLink]="'mainpage'" routerLinkActive="list_active">Home</a></li>
+            <li><a [routerLink]="'allcelebrities'" routerLinkActive="list_active">Explore</a></li>
             <li><a [routerLink]="'credits'">Credits</a></li>
             <li (click)="onLogout()"><a [routerLink]="'javscript:void'">Logout</a></li>
         </ul>
 
-          
-
-          
           <div style="clear:both;"></div>
 </div>
 

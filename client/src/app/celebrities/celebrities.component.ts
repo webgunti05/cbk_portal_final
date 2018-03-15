@@ -36,25 +36,21 @@ export class CelebritiesComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.route.params.subscribe(params => {
-       this.email = params['email'];
-       console.log(this.email);
-      // this.test = this.getMemberByEmail(this.email);
-       //  .subscribe(data => {
-       //  this.id = data._id;
-       //  console.log(this.id);
-       //});
-
-       //this.getlistofinterests(this.test);
-    });
+    // this.route.params.subscribe(params => {
+    //   this.email = params['email'];
+    //   console.log(this.email);
+    //});
 
     console.log("session" + this.name);
     
-     this.route.params.subscribe(params => {
-       this.id = params['id'];
-       console.log("id:" + this.id);
-     });
+     //this.route.params.subscribe(params => {
+     //  this.id = params['id'];
+     //  console.log("id:" + this.id);
+     //});
 
+    this.email = localStorage.getItem('loginSessId');
+    console.log("seesion" + localStorage.getItem('loginSessId'));
+    this.id = localStorage.getItem('memberId');
 
      this.test = this.getMemberByEmail(this.email);
      //alert(this.test);
@@ -75,15 +71,15 @@ export class CelebritiesComponent implements OnInit {
 
   profilePage(){
     //this.routSvc.navigateByUrl('/profile');
-    this.routSvc.navigate(['/profile/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/profile/']);
   }
   
   celebPage(){
-    this.routSvc.navigate(['/celebrities/', { email: this.email, id:this.id }]);
+    this.routSvc.navigate(['/celebrities/']);
   }
   
   transactionPage(){
-    this.routSvc.navigate(['/transactions/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/transactions/']);
   }
 
   getCelebrityById(id : any){
@@ -102,6 +98,7 @@ export class CelebritiesComponent implements OnInit {
       console.log("testingid"+ x._id);
       this.id = x._id;
      // this.test = x._id;
+      localStorage.setItem('memberId', x._id);
       console.log("final" + this.id);
     });
     return this.id;

@@ -94,25 +94,33 @@
                   <thead>
                       <tr class="tb_hdr">
                           <th>ID</th>
-                          <th>Activity Id</th>
-                          <th>Transaction Date Time</th>
-                          <th>Transaction Type</th>
-                          <th>Credit Status</th>
-                          <th>Debit Status</th>
-                          <th>Transaction Status</th>
+                          <th>Member Id</th>
+                          <th>Financial Type</th>
+                          <th>Updated At</th>
+                          <th>Created At</th>
+                          <th>Payment Gateway Response</th>
+                          <th>Transaction RefNumber</th>
+                          <th>Transaction AuthCode</th>
+                          <th>Transaction Value</th>
+                          <th>Transaction Mode</th>
+                          <th>Financial Status</th>
                       </tr>
                   </thead>
                   <tbody class="tbdy_clr">
-                      <tr>
-                          <td>001</td>
-                          <td>ACT02</td>
-                          <td>01-02-2018</td>
-                          <td>Credit</td>
-                          <td>Approved</td>
-                          <td>N / A</td>
-                          <td>Completed</td>
-                      </tr>
-                      <tr>
+                    <tr *ngFor="let t of transactions">
+                      <td>{{t._id}}</td>
+                      <td>{{t.memberId}}</td>
+                      <td>{{t.financialType}}</td>
+                      <td>{{t.updated_at}}</td>
+                      <td>{{t.created_at}}</td>
+                      <td>{{t.paymentgatewayResponse}}</td>
+                      <td>{{t.transactionRefNumber}}</td>
+                      <td>{{t.transactionAuthCode}}</td>
+                      <td>{{t.transactionValue}}</td>
+                      <td>{{t.transactionMode}}</td>
+                      <td>{{t.financialStatus}}</td>
+                    </tr>
+                      <!--<tr>
                           <td>001</td>
                           <td>ACT02</td>
                           <td>01-02-2018</td>
@@ -157,7 +165,7 @@
                           <td>Approved</td>
                           <td>N / A</td>
                           <td>Completed</td>
-                      </tr>
+                      </tr>-->
                   </tbody>
               </table>
           </div>

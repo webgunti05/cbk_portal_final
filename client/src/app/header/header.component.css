@@ -20,9 +20,9 @@
 .lgn_btn a{ color: #fff!important;}
 .lgn_btn a:hover{ background-color: #259dd0; color: #fff!important;}
 
-.list_active{ color: #259dd0; background-color: #f0f0f0; position: relative;}
-list_active:after{ position: absolute; content:""; width: 100%; height: 3px; bottom: 0px;
-    background-color: #259dd0; display: block; margin: 0px auto; left: 0px; right: 0px;
+.list_active{ color: #fff!important;  position: relative;}
+.list_active:after{ position: absolute; content:""; width: 80%; height: 1px; bottom: 0px;
+    background-color: #fff; display: block; margin: 0px auto; left: 0px; right: 0px;
 }
 
 

@@ -31,15 +31,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.params.subscribe(params => {
-      this.email = params['email'];
-      console.log(this.email);
-    });
 
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-      console.log("id:" + this.id);
-    });
+    this.email= localStorage.getItem('loginSessId');
+    console.log("seesion" +localStorage.getItem('loginSessId'));
+
+ 
 
     this.infoTab = true;
     this.ongetprofilebyemail(this.email);
@@ -96,16 +92,16 @@ export class ProfileComponent implements OnInit {
 
   profilePage() {
     //this.routSvc.navigateByUrl('/profile');
-    this.routSvc.navigate(['/profile/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/profile/']);
   }
 
   celebPage() {
-    this.routSvc.navigate(['/celebrities/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/celebrities/']);
   }
 
   transactionPage() {
     //this.routSvc.navigateByUrl('/transactions');
-    this.routSvc.navigate(['/transactions/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/transactions/']);
   }
 
 ongetprofilebyemail(email : any) {
@@ -121,7 +117,7 @@ getMemberByEmail(email: any) {
   this.cbOvc.getMemberByEmail(this.email).subscribe(x => {
     console.log("testingid" + x._id);
     this.id = x._id;
-
+    localStorage.setItem('memberId', x._id);
     console.log("final" + this.id);
   });
   return this.id;

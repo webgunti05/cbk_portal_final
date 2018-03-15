@@ -1,0 +1,32 @@
+<div class="container-fluid profpage" [style.background-image]="'url(\'assets/images/land_bg.jpg\')'">
+  <div class="container">
+
+
+  </div>
+</div>
+
+<div class="container-fluid allcb_cont">
+  <div class="container">
+    <div class="row">
+
+    
+      <div class="col-12 col-sm-4 col-md-4 col-lg-4 " *ngFor="let cb of allCelebs;">
+        <div class="allceleb_box">
+          <div class="cb_avtar"><img src="{{imageUrl+cb.avtar_imgPath}}" width="100%" alt="{{cb.name}}" title="{{cb.name}}" /></div>
+          
+          <div class="allceleb_data">
+            <h3>{{cb.name}}</h3>
+            <p>{{cb.profession}}</p>
+          </div>
+
+          <div class="cb_masker">
+             
+            <p>Follow</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

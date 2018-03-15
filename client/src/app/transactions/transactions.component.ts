@@ -18,6 +18,7 @@ export class TransactionsComponent implements OnInit {
   private mediaTab : boolean;
   isClassVisible: false;
   private profile: member;
+  transactions: Array<any>;
 
   imageUrl: any = "http://13.58.150.195:4300/";
   private name = localStorage.getItem('loginSessId');
@@ -26,30 +27,26 @@ export class TransactionsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.params.subscribe(params => {
-      this.email = params['email'];
-      console.log(this.email);
-    });
-
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-      console.log("id:" + this.id);
-    });
+    this.email = localStorage.getItem('loginSessId');
+    console.log("seesion" + localStorage.getItem('loginSessId'));
+    this.id = localStorage.getItem('memberId');
 
     this.ongetprofilebyemail(this.email);
+    this.onGetTransactions();
   }
 
   profilePage() {
     //this.routSvc.navigateByUrl('/profile');
-    this.routSvc.navigate(['/profile/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/profile/']);
   }
 
   celebPage() {
-    this.routSvc.navigate(['/celebrities/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/celebrities/']);
   }
 
   transactionPage() {
-    this.routSvc.navigate(['/transactions/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/transactions/']);
+    this.onGetTransactions();
   }
 
   ongetprofilebyemail(email : any) {
@@ -57,9 +54,17 @@ export class TransactionsComponent implements OnInit {
     this.cbOvc.onGetProfileByEmail(email).subscribe(data => {
       this.profile = data;
       console.log(data);
+     
     });
-  
-  
+  }
+
+  onGetTransactions() {
+    this.id = "5a8cf8d2e253000670d1cfd9";
+    this.cbOvc.onGetTransactions(this.id).subscribe(data => {
+      this.transactions = data;
+      console.log(data);
+    });
+
   }
 
 }

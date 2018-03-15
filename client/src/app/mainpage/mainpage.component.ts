@@ -4,7 +4,8 @@ import { ObservableService } from '../services/observable.service';
 import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormGroup, Validators, FormControl, } from '@angular/forms';
 import { celebprofile } from '../models/celebprofile';
-import { Http, Headers, Response, RequestOptions } from '@angular/http'
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { member } from '../models/member';
 
 
 
@@ -16,9 +17,22 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http'
 export class MainpageComponent implements OnInit {
   private email : any;
   private id : any;
-  private cc :  celebprofile;
+  private cc: celebprofile;
+
+  Celebrities: Array<any>;
+ 
+  celebsProfile: celebprofile[];
+  interests: celebprofile[];
+  imageUrl: any = "http://13.58.150.195:4300/";
+  public test: any;
+  private name = localStorage.getItem('loginSessId');
+
+  isClassVisible: false;
+
+  private profile: member;
+
   constructor(private routSvc: Router, public route: ActivatedRoute, private cbOvc: ObservableService) {
-    this.email = this.email;
+   
   }
 
   ngOnInit() {
@@ -31,22 +45,27 @@ export class MainpageComponent implements OnInit {
         this.id =params['id'];
         console.log("id:"+this.id);
       });
+      this.email = localStorage.getItem('loginSessId');
+      this.getMemberByEmail(this.email);
+      this.test = this.getMemberByEmail(this.email);
+      this.getlistofinterests(this.test);
+      this.getCelebrityById(this.id);
+      this.ongetprofilebyemail(this.email);
 
-    this.getMemberByEmail(this.email);
   }
 
   profilePage(){
     //this.routSvc.navigateByUrl('/profile');
-    this.routSvc.navigate(['/profile/', { email: this.email, id: this.id  }]);
+    this.routSvc.navigate(['/profile/']);
   }
 
   celebPage() {
-    this.routSvc.navigate(['/celebrities/', { email: this.email, id : this.id }]);
+    this.routSvc.navigate(['/celebrities/']);
     // this.routSvc.navigateByUrl('/celebrities' email:);
   }
 
   transactionPage(){
-    this.routSvc.navigate(['/transactions/', { email: this.email, id: this.id }]);
+    this.routSvc.navigate(['/transactions/']);
   }
 
   //getMemberByEmail(email : any){
@@ -66,6 +85,36 @@ export class MainpageComponent implements OnInit {
       console.log("final" + this.id);
     });
     return this.id;
+  }
+
+  getCelebrityById(id: any) {
+    id = this.id;
+    this.cbOvc.getCelebrityById(id).subscribe(data => {
+      this.celebsProfile = data;
+      console.log("celebsProfile:" + data);
+    });
+    return this.celebsProfile;
+  }
+
+
+  getlistofinterests(id: number) {
+    id = this.id;
+    console.log("tr" + this.test);
+    this.cbOvc.getCelebrityById(this.id).subscribe(interests => {
+      this.interests = interests;
+      console.log(interests);
+    });
+    // return this.interests;
+  }
+
+  ongetprofilebyemail(email: any) {
+    this.email = email;
+    this.cbOvc.onGetProfileByEmail(email).subscribe(data => {
+      this.profile = data;
+      console.log(data);
+    });
+
+
   }
 
 }

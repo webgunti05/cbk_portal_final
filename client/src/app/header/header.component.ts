@@ -69,8 +69,8 @@ export class HeaderComponent implements OnInit {
     this.loginFixed = false;
     this.menuFixed = false;
 
-    this.showMyMenu2 = false;
-    this.showMyMenu = true;
+    //this.showMyMenu2 = false;
+    //this.showMyMenu = true;
 
 
     //this.email = localStorage.getItem('loginSessId');
@@ -105,23 +105,23 @@ export class HeaderComponent implements OnInit {
         this.messageClass = "alert alert-success";
                
         localStorage.setItem('loginSessId', user.email);
-  
+        this.Obsvc.storeUserData(data.token, data.user);
         //console.log("memberId:" + this.email);
         //this.routeSvc.navigate(['/mainpage/', { id:this.id }]);
          //this.routeSvc.navigateByUrl('/mainpage', {email:this.email});
         //this.routeSvc.navigate(['/mainpage/', { id: this.memberId }]);
-         this.routeSvc.navigate(['/profile/', { email:this.email }])
+         this.routeSvc.navigate(['/profile/'])
         this.showPopup = false;
         this.showMask = false;
-        this.showMyMenu2 = true;
-        this.showMyMenu = false;
+        //this.showMyMenu2 = true;
+        //this.showMyMenu = false;
         
       } else{
         this.message = data.message;
         this.messageClass = "alert alert-danger";
-        this.showMyMenu2 = true;
-        this.showMyMenu = false;
-       // localStorage.setItem('loginSessId', user.email);
+        //this.showMyMenu2 = true;
+       // this.showMyMenu = false;
+       localStorage.setItem('loginSessId', user.email);
         
       }
     });
@@ -129,8 +129,10 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() : void{
-    this.routeSvc.navigate(['/home/']);
-    window.location.reload();
+    
+    this.Obsvc.logout();
+      this.routeSvc.navigate(['/']);
+  
   }
   onGetMemberByEmail() {
     const user = {

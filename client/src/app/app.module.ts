@@ -27,6 +27,7 @@ import { ObservableService } from './services/observable.service';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { RegisterService } from './services/register.service';
+import { AllcelebritiesComponent } from './allcelebrities/allcelebrities.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { RegisterService } from './services/register.service';
     CelebritiesComponent,
     CreditsComponent,
     MainpageComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    AllcelebritiesComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import { RegisterService } from './services/register.service';
       { path : 'mainpage', component : MainpageComponent},
       { path : 'celebrities', component : CelebritiesComponent},
       { path: 'transactions', component: TransactionsComponent },
-      
+      { path: 'allcelebrities', component: AllcelebritiesComponent }
     ])
   ],
   providers: [
