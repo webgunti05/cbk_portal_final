@@ -9,19 +9,19 @@
   <div class="container">
     <div class="row">
 
-    
+
       <div class="col-12 col-sm-4 col-md-4 col-lg-4 " *ngFor="let cb of allCelebs;">
         <div class="allceleb_box">
           <div class="cb_avtar"><img src="{{imageUrl+cb.avtar_imgPath}}" width="100%" alt="{{cb.name}}" title="{{cb.name}}" /></div>
-          
+
           <div class="allceleb_data">
             <h3>{{cb.name}}</h3>
             <p>{{cb.profession}}</p>
           </div>
 
-          <div class="cb_masker">
-             
-            <p>Follow</p>
+          <div class="cb_masker" (click)="openCbProfile(cb._id)">
+
+            <p><i class="fas fa-eye fa-2x"></i><br /> View Profile</p>
           </div>
 
         </div>
@@ -29,4 +29,66 @@
 
     </div>
   </div>
+</div>
+
+
+<!--login popup-->
+<div class="loginpop_mask" *ngIf="cbprofmask" (click)="closeCbProfile()"></div>
+<div class="loing_popup" *ngIf="cbProfile">
+
+  <div class="cvrwrap">
+    <div class="profile_wrapper">
+      <img src="assets/images/coverpage.jpg" class="c_page" width="100%" alt="coverpage" title="coverpage">
+      <ul class="title_mask">
+        <li>
+          <span class="big">500</span>
+          <small>Followers</small>
+        </li>
+
+        <li>
+          <span class="big">200</span>
+          <small>Following</small>
+        </li>
+
+        <li>
+          <span class="big">53</span>
+          <small>Posts</small>
+        </li>
+      </ul>
+
+      <div class="profile_manager">
+        <div class="profile_box"><img src="{{imageUrl+celebrity.avtar_imgPath}}" class="act_bg" width="100%" alt="{{celebrity.name}}" title="{{celebrity.name}}"></div>
+        <!--<p class="profile_edit"><i class="fas fa-pencil-alt"></i> Edit</p>-->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="profile_info">
+    <ul class="pful">
+      <li>
+        <span>Name</span>
+        <p class="cbfnter">{{celebrity.name}}</p>
+      </li>
+      <li>
+        <span>Occupation</span>
+        <p class="cbfnter">{{celebrity.profession}} </p>
+      </li>
+      <li>
+        <span>Country</span>
+        <p class="cbfnter">{{celebrity.country}}</p>
+      </li>
+      
+      <!--<li>
+      <button type="button" class="btn btn-default flw_btn">Follow</button>
+  </li>-->
+      <div class="clearfix"></div>
+    </ul>
+
+    <div class="abtCb">
+      <h6>About Me</h6>
+      {{celebrity.aboutMe}}
+    </div>
+  </div>
+
 </div>

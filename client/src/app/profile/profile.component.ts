@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
   private name = localStorage.getItem('loginSessId');
   feedDetails: any[];
   errorMessage: string;
+  celebrityRequest: any;
 
   
   constructor(private routSvc: Router, private cbOvc: ObservableService, public route: ActivatedRoute) { 
@@ -42,6 +43,8 @@ export class ProfileComponent implements OnInit {
     this.getMemberByEmail(this.email);
 
     console.log("session" + this.name);
+
+    this.createCelebRequest();
   }
 
   showProfileTabs(id : string, event){
@@ -133,5 +136,14 @@ onGetContentByID() {
   console.log(this.errorMessage);
   return this.feedDetails;
 }
+
+createCelebRequest(id: any) {
+  alert(id);
+    this.cbOvc.sendCelebRequest(this.id).subscribe(result => {
+      this.celebrityRequest = result;
+      console.log(this.celebrityRequest);
+      
+    });
+  }
 
 }

@@ -112,5 +112,14 @@ getMemberByEmail(email:any): Observable<any>{
     return this.http.get('http://13.58.150.195:4300/users/getMemberByisCeleb').map((res: Response) => res.json());
   }
 
+  getMemberByID(id: any) {
+    return this.http.get('http://13.58.150.195:4300/users/getMember/' + id + '').map((res: Response) => res.json());
+  }
+
+
+  sendCelebRequest(id: any) {
+    return this.http.post('http://13.58.150.195:4300/celebrequest/create/', id ).map((res: Response) => res.json());
+  }
+
 
 }
