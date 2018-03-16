@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
     console.log("session" + this.name);
 
-    this.createCelebRequest(this.id);
+   // this.createCelebRequest(this.id);
   }
 
   showProfileTabs(id : string, event){
