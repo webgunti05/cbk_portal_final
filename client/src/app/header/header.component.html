@@ -10,7 +10,7 @@
         <ul class="cbk_menu" id="menuId" [class.spaceForMenu]="menuFixed" *ngIf="Obsvc.loggedIn()">
             <li><a [routerLink]="'mainpage'" routerLinkActive="list_active">Home</a></li>
             <li><a [routerLink]="'allcelebrities'" routerLinkActive="list_active">Explore</a></li>
-            <li><a [routerLink]="'credits'">Credits</a></li>
+            <li><a [routerLink]="'credits'" routerLinkActive="list_active">Credits</a></li>
             <li (click)="onLogout()"><a [routerLink]="'javscript:void'">Logout</a></li>
         </ul>
 

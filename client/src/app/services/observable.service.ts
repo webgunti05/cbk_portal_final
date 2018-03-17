@@ -117,8 +117,65 @@ getMemberByEmail(email:any): Observable<any>{
   }
 
 
-  sendCelebRequest(id: any) {
-    return this.http.post('http://13.58.150.195:4300/celebrequest/create/', id ).map((res: Response) => res.json());
+  sendCelebRequest(id) {
+    
+    let body : any = {};
+    body.memberId = id;
+    return this.http.post('http://13.58.150.195:4300/celebrequest/create/', body ).map((res: Response) => res.json());
+  }
+
+  //updateUserById(id) {
+  //  return this.http.post('http://13.58.150.195:4300/users/editUser/', id).map((res: Response) => res.json());
+  //}
+
+  onUpdateMember(member: any) {
+    var st: string = member.isCeleb.toString();
+
+    
+    let body: any = {};
+    body.id = member._id.toString();
+    body.status = member.status.toString();
+    body.address = member.address;
+    body.availableCredits = member.availableCredits;
+    body.dateOfBirth = member.dateOfBirth;
+    body.email = member.email;
+    body.gender = member.gender;
+    body.location = member.location;
+    body.loginType = member.loginType;
+    body.mobileNumber = member.mobileNumber;
+    body.name = member.name;
+    body.password = member.password;
+    body.username = member.username;
+    body.preferences = member.preferences;
+    body.IsDeleted = member.IsDeleted.toString();
+    body.aboutMe = member.aboutMe;
+    body.avtar_imgPath = member.avtar_imgPath;
+    body.avtar_originalname = member.avtar_originalname;
+    body.created_at = member.created_at;
+    body.isCeleb = st;
+    body.lastName = member.lastName;
+    body.prefix = member.prefix;
+    body.role = member.role;
+    body.isTrending = member.isTrending.toString();
+    body.isEditorChoice = member.isEditorChoice.toString();
+    body.isOnline = member.isOnline.toString();
+    body.isPromoted = member.isPromoted.toString();
+    // body.status = member.status.toString();
+    //body.updated_at = member.updated_at;
+    body.updated_at = member.updated_at == null ? "" : member.updated_at;
+    body.v = member.__v.toString();
+    body.celebToManager = member.celebToManager;
+    console.log(body);
+    return this.http.post('http://13.58.150.195:4300/users/editUser', body).map((res: Response) =>
+      res.json());
+  }
+
+
+  onfileupload(id: any, formdata: any) {
+    //formdata.id = "5a9cd36741249d75a4d62834";
+    //formdata.avtar_imgPath = "2";
+    return this.http.post('http://13.58.150.195:4300/users/editUser', formdata).map((res: Response) =>
+      res.json());
   }
 
 

@@ -59,7 +59,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   onGetTransactions() {
-    this.id = "5a8cf8d2e253000670d1cfd9";
+    //this.id = this.id
     this.cbOvc.onGetTransactions(this.id).subscribe(data => {
       this.transactions = data;
       console.log(data);

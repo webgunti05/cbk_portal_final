@@ -81,4 +81,195 @@ box-shadow: 0px 3px 0px #1c262a; font-weight:600; padding: 0 20px; float: right;
 .mycard_space{ margin-bottom: 25px;}
 #mymedias{ margin-top: 30px;}
 .mybgspacer{ position: relative; border: 1px solid #ddd; padding:10px 10px; }
+.disable_btn{ cursor:not-allowed;}
+
+.update_profileform{ padding:30px; -webkit-box-shadow:0px 0px 60px #ccc; -moz-box-shadow:0px 0px 60px #ccc; -ms-box-shadow:0px 0px 60px #ccc;
+                     box-shadow:0px 0px 60px #ccc; background-color:#fff; border:1px solid #ddd; margin-bottom:0px;
+                      -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
+              transition: 0.3s ease-in-out;          
+}
+.show_updpform{   margin-bottom:50px;}
+
+.lg_email {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  font-size: 12px;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  padding: 0 0 5px 0px;
+}
+
+  .lg_email:focus {
+    border-color: #259dd0;
+    color: #259dd0;
+  }
+
+  .lg_email::-webkit-input-placeholder {
+    color: #ccc;
+  }
+
+.embx {
+  position: relative;
+}
+
+.usicn {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  z-index: 10;
+  color: #ccc;
+}
+
+.lg_email:focus .usicn {
+  color: #259dd0 !important;
+}
+
+.embx > label {
+  color: #ccc;
+  font-size: 12px;
+}
+
+.embx2 {
+  margin-bottom: 30px;
+}
+
+.lgnbtner {
+  float: right;
+  background-color: #259dd0;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.chk_box {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #ccc;
+}
+
+
+  .chk_box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+
+.chk_box:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+
+.chk_box input:checked ~ .checkmark {
+  background-color: #259dd0;
+  border-color: #259dd0;
+}
+
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+.chk_box input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.chk_box .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 4px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.fgp {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  left: 0;
+  padding: 12px 50px;
+  font-size: 13px;
+}
+
+.signup_hdng {
+  color: #259dd0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hp_blk {
+  list-style: none;
+  font-size: 12px;
+}
+
+.lgn_hdng {
+  color: #000;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+}
+.date_field{ margin-top:12px!important;}
+.error_mes{ color:red;}
+
+.image-upload > input {
+  display: none;
+}
+
+.image-upload {
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  background-color: #fff;
+  z-index: 20;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0px 0px 30px #666;
+  -ms-box-shadow: 0px 0px 30px #666;
+  box-shadow: 0px 0px 30px #666;
+}
+.pfimger{ width:150px; height:150px;}
+
+
 

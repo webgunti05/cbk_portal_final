@@ -18,8 +18,9 @@
           <li><a (click)="celebPage()"><i class="far fa-star"></i> My Celebrities</a></li>
           <li><a (click)="transactionPage()"><i class="far fa-money-bill-alt"></i> My Transactions</a></li>
         </ul>
-        
-        <button type="button" class="btn btn-default bc_btn" (click)="createCelebRequest(profile._id)">Become a Celebrity</button>
+
+        <div [ngClass]="messageClass">{{message}}</div>
+        <button type="button" id="bcbtn" class="btn btn-default bc_btn" (click)="createCelebRequest(profile._id)">Become a Celebrity</button>
       </div>
       <!--left side nav ends-->
 
@@ -45,8 +46,23 @@
               </ul>
 
               <div class="profile_manager">
-                <div class="profile_box"><img src="{{imageUrl+profile.avtar_imgPath}}" class="act_bg" width="100%" alt="{{profile.name}}" title="{{profile.name}}"></div>
-                  <p class="profile_edit"><i class="fas fa-pencil-alt"></i> Edit</p>
+                <!--<div class="profile_box">
+                <img src="{{imageUrl+profile.avtar_imgPath}}" class="act_bg" width="100%" alt="{{profile.name}}" title="{{profile.name}}">
+                </div>-->
+
+                <div class="image-upload">
+                    <!--<form [formGroup]="formProfile" enctype="multipart/form-data" method="post" name="fileinfo">-->
+                    <label for="selectFile" style="width:150px;">
+                      <img src="{{imageUrl+profile.avtar_imgPath}}" style="width:150px;"/>
+                      <img *ngIf="profile.avtar_imgPath==''"  src="assets/images/profile_pic.jpg" width="100%" alt="{{profile.name}}" title="{{profile.name}}" />
+                    </label>
+                    <input type="file" id="selectFile" (change)="readURL($event)" name="selectFile" class="form-group" />
+
+                    <!--<input type="file" id="file-input" (change)="readURL($event)" />-->
+                    <!--</form>-->
+                  </div>
+
+                  <p class="profile_edit" (click)="openPform(profile._id)"><i class="fas fa-pencil-alt"></i> Edit</p>
               </div>
             </div>
         </div>
@@ -72,6 +88,91 @@
           <div class="clearfix"></div>
           </ul>
         </div>
+
+
+        <!-- profile update form here-->
+
+        <div>
+
+
+        </div>
+        <div class="col-12 update_profileform" *ngIf="pform" id="pf">
+
+          <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile(profile)">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">First Name</label>
+
+
+                <input type="text" [(ngModel)]="profile.name" class="form-control lg_email reg_email" id="profile.name" placeholder="First Name" formControlName="profile.name">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="lastname">Last Name</label>
+                <input type="text" [(ngModel)]="profile.lastName" class="form-control lg_email reg_email" id="profile.lastName" placeholder="Last Name" formControlName="profile.lastName">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="mobileNumber">Phone</label>
+                <input type="number" [(ngModel)]="profile.mobileNumber" class="form-control lg_email reg_email" id="profile.mobileNumber" placeholder="Mobile Number" formControlName="profile.mobileNumber">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" [(ngModel)]="profile.email" class="form-control lg_email reg_email" id="email" placeholder="profile.email" formControlName="profile.email">
+              </div>
+
+
+            </div>
+
+
+
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label for="gender">Gender</label>
+                <select id="profile.gender" [(ngModel)]="profile.gender" class="form-control lg_email reg_email" formControlName="profile.gender">
+
+                  <option value="Male" selected>Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" [(ngModel)]="profile.dateOfBirth" class="form-control lg_email reg_email date_field" id="profile.dateOfBirth" formControlName="profile.dateOfBirth" />
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="location">Location</label>
+                <input type="text" [(ngModel)]="profile.location" class="form-control lg_email reg_email" id="profile.location" placeholder="Location" formControlName="profile.location">
+              </div>
+
+
+              <div class="form-group col-md-6">
+                <label for="about">About</label>
+                <input type="text" [(ngModel)]="profile.aboutMe" class="form-control  lg_email reg_email" id="profile.aboutMe" placeholder="About Me" formControlName="profile.aboutMe">
+                <div class="clearfix"></div>
+              </div>
+
+            </div>
+
+           
+
+            <div *ngIf="isValid">
+              <p class="error_mes">{{successMessage}}</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Profile </button>
+            <button type="button" class="btn btn-primary" (click)="closePform()">Close </button>
+
+          </form>
+
+        </div>
+        <!--profile update form ends here-->
+
+
 
         <!--tabs for profile feeds starts-->
         <div class="profile_tabs">

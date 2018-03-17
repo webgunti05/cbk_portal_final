@@ -30,26 +30,46 @@ top: 5px;
 .celeb_appmobs > img{ max-width: 480px;}
 .ql_hdng2{ font-size: 20px; font-weight: 600; color: #2c2c2c; padding: 20px 0px;}
 .sc_wrap{ margin: 0px 0px 0px 50px; display: block; list-style: none;}
-.fb,.tw,.lin{ padding: 10px 20px; display: inline-block; cursor: pointer;
+.fb,.tw,.lin{  display: inline-block; cursor: pointer;
 	-webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; 
 	-webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out;
 }
 .fb span,.tw span,.lin span{ display: inline-block;}
-.fb{ background-color: #4267b2; color:#fff; border: 1px solid;}
-.tw{ background-color: #1da1f2; color:#fff; border: 1px solid;}
-.lin{ background-color: #e4405f; color:#fff; border: 1px solid;}
-.fb:hover,.tw:hover,.lin:hover{ background-color:rgba(0,0,0,0.9); color:#fff;}
-
-
+/*.fb{ background-color: #365899; color:#fff; border: 1px solid;}*/
+.tw {
+  background-color: #1da1f2;
+  color: #fff;
+  border: 1px solid;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; padding-top:3px;
+  width: 69px;
+  height: 30px; position:relative; top:-10px; text-align:center;
+}
+.lin {
+  background-color: #e4405f;
+  color: #fff;
+  border: 1px solid;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; padding: 3px 11px;
+  height: 30px;
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+/*.fb:hover,.tw:hover,.lin:hover{ background-color:rgba(0,0,0,0.9); color:#fff;}*/
+.lin a{ color:#fff; text-decoration:none;}
+.tw a{ color:#fff; text-decoration:none;}
 /*buttons*/
-.btn-app-store{
-    background: black;
-	color: white;
-	position: relative;
-	height: 60px;
-	padding-left: 55px;
-	padding-right: 20px;
+.btn-app-store {
+  background: black;
+  color: white;
+  position: relative;
+  height: 60px;
+  padding-left: 55px;
+  padding-right: 20px;
 }
 .ibtn{
 	font-size: 40px;
@@ -283,4 +303,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .lgn_hdng{ color: #000; font-weight:300; font-size: 20px; text-transform: uppercase; padding-bottom: 30px;}
 
 
- 
+.pref_catebox {
+  margin-bottom: 20px;
+}
+
+.pref_databox {
+}
+
+.err {
+  background-color: none !important;
+  border-color: none !important;
+  padding: 5px 0px 0px 0px;
+  color: red;
+}
+
+.fbreq{ width:69px; height:29px;}
+
+

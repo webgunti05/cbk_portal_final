@@ -28,6 +28,10 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { RegisterService } from './services/register.service';
 import { AllcelebritiesComponent } from './allcelebrities/allcelebrities.component';
+//import { AuthGuard } from './guards/auth.guard';
+//import { NotAuthGuard } from './guards/notAuth.guard';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
 
 
 @NgModule({
@@ -59,28 +63,30 @@ import { AllcelebritiesComponent } from './allcelebrities/allcelebrities.compone
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path : '', redirectTo : 'home', pathMatch: 'full' },
-      { path : 'home', component : HomeComponent},
-      { path : 'register', component : RegisterComponent},
-      { path : 'login', component : LoginComponent},
-      { path : 'profile', component : ProfileComponent},
-      { path : 'aboutus', component : AboutusComponent},
-      { path : 'faqs', component : FaqsComponent},
-      { path : 'contactus', component : ContactusComponent},
-      { path : 'termsandconditions', component : TermsComponent},
-      { path : 'privacypolicy', component : PrivacyComponent},
-      { path : 'help', component : HelpComponent},
-      { path : 'communityguidlines', component : CommunityComponent},
-      { path : 'mainpage', component : MainpageComponent},
-      { path : 'celebrities', component : CelebritiesComponent},
-      { path: 'transactions', component: TransactionsComponent },
-      { path: 'allcelebrities', component: AllcelebritiesComponent }
+      { path: '', redirectTo: 'home', pathMatch: 'full', },
+      { path: 'home', component: HomeComponent},
+      //{ path : 'register', component : RegisterComponent},
+      //{ path : 'login', component : LoginComponent},
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+      { path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard]},
+      { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard]},
+      { path: 'contactus', component: ContactusComponent, canActivate: [AuthGuard]},
+      { path: 'termsandconditions', component: TermsComponent, canActivate: [AuthGuard]},
+      { path: 'privacypolicy', component: PrivacyComponent, canActivate: [AuthGuard]},
+      { path: 'help', component: HelpComponent, canActivate: [AuthGuard]},
+      { path: 'communityguidlines', component: CommunityComponent, canActivate: [AuthGuard]},
+      { path: 'mainpage', component: MainpageComponent, canActivate: [AuthGuard]},
+      { path: 'celebrities', component: CelebritiesComponent, canActivate: [AuthGuard]},
+      { path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard] },
+      { path: 'allcelebrities', component: AllcelebritiesComponent, canActivate: [AuthGuard] },
+      { path: 'credits', component: CreditsComponent, canActivate: [AuthGuard] }
     ])
   ],
   providers: [
     MenuService,
     ObservableService,
-    RegisterService
+    RegisterService,
+    AuthGuard, NotAuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,7 @@ import { MenuService } from '../services/menu.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ObservableService } from '../services/observable.service';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Component({
   selector: 'Header',
@@ -27,7 +28,8 @@ export class HeaderComponent implements OnInit {
   loginForm: FormGroup;
   message;
   messageClass;
-  user:any;
+  user: any;
+  previousUrl;
 
   private navIsFixed : boolean;
   private logoFixed : boolean;
@@ -48,6 +50,8 @@ export class HeaderComponent implements OnInit {
      private Obsvc : ObservableService,
      private frmBuilder : FormBuilder,
      public route: ActivatedRoute,
+     private authGuard: AuthGuard,
+
      @Inject(DOCUMENT) private document: Document
     ) {
     this.logoBg = "assets/images/logo-trans.png";
@@ -179,7 +183,14 @@ export class HeaderComponent implements OnInit {
    this.route.params.subscribe(params => {
     this.id =params['id'];
     console.log("id:"+this.id);
-  });
+   });
+
+   if (this.authGuard.redirectUrl) {
+     this.messageClass = 'alert alert-danger'; 
+     this.message = 'You must be logged in to view that page.'; 
+     this.previousUrl = this.authGuard.redirectUrl;
+     this.authGuard.redirectUrl = undefined; 
+   }
    
   }
 
